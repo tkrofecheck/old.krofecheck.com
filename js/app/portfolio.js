@@ -87,7 +87,7 @@ myApp.Portfolio = (function() {
 					self.$grid.attr('data-orig-csstext', self.$grid.attr('style'));
 				}
 
-				self.$grid.attr('style', self.$grid.attr('data-orig-csstext') + ' margin-bottom: ' + $('.toolbar').innerHeight() + 20 + 'px !important');
+				self.$grid.attr('style', self.$grid.attr('data-orig-csstext') + ' margin-bottom: ' + $('.toolbar').innerHeight() + 'px !important');
 
 				self.$grid.masonry('layout');
 			});
