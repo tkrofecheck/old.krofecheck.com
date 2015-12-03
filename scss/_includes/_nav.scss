@@ -134,3 +134,16 @@
 		}
     }
 }
+
+@media only screen and (min-width: 320px) and (max-width: 444px) {
+    .tile-settings {
+	    .toolbar {
+		    input[name='size'] {
+		        display: none;
+		    }
+		    label[for="size-normal"], label[for="size-tile2x"], label[for="size-gigante"] {
+		        display: none;
+		    }
+		}
+	}
+}

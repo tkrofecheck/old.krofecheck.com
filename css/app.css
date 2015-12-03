@@ -253,6 +253,16 @@ body button[name='reload-tiles'] {
   content: "Remove Tiles (ON)";
 }
 
+@media only screen and (min-width: 320px) and (max-width: 444px) {
+  /* line 141, ../scss/_includes/_nav.scss */
+  .tile-settings .toolbar input[name='size'] {
+    display: none;
+  }
+  /* line 144, ../scss/_includes/_nav.scss */
+  .tile-settings .toolbar label[for="size-normal"], .tile-settings .toolbar label[for="size-tile2x"], .tile-settings .toolbar label[for="size-gigante"] {
+    display: none;
+  }
+}
 /* line 1, ../scss/_includes/_resume.scss */
 #resume-container {
   display: none;
@@ -347,56 +357,46 @@ body button[name='reload-tiles'] {
   #portfolio-projects.grid .gigante {
     max-width: none !important;
   }
-
-  /* line 101, ../scss/_includes/_portfolio.scss */
-  input[name='size'] {
-    display: none;
-  }
-
-  /* line 104, ../scss/_includes/_portfolio.scss */
-  label[for="size-normal"], label[for="size-tile2x"], label[for="size-gigante"] {
-    display: none;
-  }
 }
 @media only screen and (min-width: 768px) and (max-width: 1024px) {
-  /* line 113, ../scss/_includes/_portfolio.scss */
+  /* line 106, ../scss/_includes/_portfolio.scss */
   #portfolio-projects.grid .grid-item span {
     font-size: 3vw;
     line-height: normal !important;
   }
-  /* line 119, ../scss/_includes/_portfolio.scss */
+  /* line 112, ../scss/_includes/_portfolio.scss */
   #portfolio-projects.grid .grid-item.tile-width-x2 span {
     font-size: 4vw;
   }
-  /* line 125, ../scss/_includes/_portfolio.scss */
+  /* line 118, ../scss/_includes/_portfolio.scss */
   #portfolio-projects.grid .grid-item.gigante span {
     font-size: 5vw;
   }
 }
 @media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
-  /* line 137, ../scss/_includes/_portfolio.scss */
+  /* line 130, ../scss/_includes/_portfolio.scss */
   #portfolio-projects.grid .grid-item {
     max-width: 175px !important;
   }
-  /* line 140, ../scss/_includes/_portfolio.scss */
+  /* line 133, ../scss/_includes/_portfolio.scss */
   #portfolio-projects.grid .grid-item.tile-width-x2 {
     max-width: 350px !important;
   }
-  /* line 144, ../scss/_includes/_portfolio.scss */
+  /* line 137, ../scss/_includes/_portfolio.scss */
   #portfolio-projects.grid .grid-item.gigante {
     max-width: 748px !important;
   }
 }
 @media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
-  /* line 155, ../scss/_includes/_portfolio.scss */
+  /* line 148, ../scss/_includes/_portfolio.scss */
   #portfolio-projects.grid .grid-item {
     max-width: 240px !important;
   }
-  /* line 158, ../scss/_includes/_portfolio.scss */
+  /* line 151, ../scss/_includes/_portfolio.scss */
   #portfolio-projects.grid .grid-item.tile-width-x2 {
     max-width: 480px !important;
   }
-  /* line 162, ../scss/_includes/_portfolio.scss */
+  /* line 155, ../scss/_includes/_portfolio.scss */
   #portfolio-projects.grid .grid-item.gigante {
     max-width: 980px !important;
   }
