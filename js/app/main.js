@@ -99,7 +99,7 @@ define(['jquery', 'underscore', 'handlebars', 'masonry', 'tools'],
         $.fn.autolink = function () {
             return this.each( function(){
                 var re = /((http|https|ftp):\/\/[\w?=&.\/-;#~%-]+(?![\w\s?&.\/;#~%"=-]*>))/g;
-                $(this).html( $(this).html().replace(re, '<br/><a href="$1">See Example</a> ') );
+                $(this).html( $(this).html().replace(re, '<br/><a href="$1" target="_blank">See Example</a> ') );
             });
         };
 
