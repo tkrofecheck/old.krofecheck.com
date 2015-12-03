@@ -1,0 +1,136 @@
+#nav-container {
+	position: fixed;
+	-webkit-backface-visibility: hidden;
+	top: 0;
+	left: 0;
+	right: 0;
+	width: 100%;
+	height: auto;
+	z-index: 10000;
+
+	nav {
+		position: absolute;
+		top: 0;
+		left: 0;
+		display: flex;
+		background-color: #000000;
+		width: 100%;
+		height: auto;
+		margin: 0 auto;
+		align-items: center;
+		border-bottom: 3px solid #ffffff;
+
+		div {
+			position: relative;
+			display: block;
+			width: calc(100% / 3);
+		}
+
+		a {
+			position: relative;
+			display: block;
+			font-family: Arial, sans-serif;
+			font-size: 1.5em;
+			font-weight: bold;
+			color: #ffffff;
+			padding: 8px 0;
+			width: calc(100% / 3);
+			align-self: center;
+			text-align: center;
+			text-decoration: none;
+			float: left;
+		}
+	}
+}
+
+.no-touch {
+	a:hover {
+		color: #ff0000 !important;
+	}
+
+	a:visited {
+		color: #ffffff;
+	}
+}
+
+.tile-settings {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    .toolbar {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        background-color: #000000;
+        border-top: 3px solid #ffffff;
+
+        .header {
+        	color: #ffffff;
+        	text-align: center;
+		    font-size: 1.25em;
+		    font-weight: 600;
+		    font-family: Arial, sans-serif;
+        }
+
+        .buttons {
+        	width: 100%;
+        	text-align: center;
+        }
+
+        input[type="radio"], input[type="checkbox"], input[type="button"] {
+	    	-webkit-appearance: button; /* WebKit */
+			-moz-appearance: button; /* Mozilla */
+			-o-appearance: button; /* Opera */
+			-ms-appearance: button; /* Internet Explorer */
+			appearance: button; /* CSS3 */
+			display: inline-block;
+			font-family: Arial, sans-serif;
+			font-size: 1em;
+			background-color: #ffffff;
+			border: 1px solid #000;
+			width: auto;
+			height: auto;
+			padding: 5px;
+			text-align: center;
+			
+			&:checked, &:active {
+				background-color: #ff0000;
+			}
+		}
+
+		input#size-normal {
+			&:after {
+				content: "Normal";
+			}
+		}
+
+		input#size-tile2x {
+			&:after {
+				content: "Large";
+			}
+		}
+
+		input#size-gigante {
+			&:after {
+				content: "Gigante";
+			}
+		}
+
+		input#remove-tiles {
+			&:after {
+				content: "Remove Tiles (OFF)";
+			}
+
+			&:checked, &:active {
+				&:after {
+					content: "Remove Tiles (ON)";
+				}
+			}
+		}
+
+		input#reload-tiles {
+		}
+    }
+}
