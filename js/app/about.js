@@ -12,8 +12,11 @@ myApp.About = (function() {
 			html: ''.concat(
 				'{{#each paragraphs}}',
 	            '{{#if this.display}}',
-	    			'<div>',
+	    			'<div class="bio">',
 	    			'<h4>{{this.name}}</h4>',
+	    			'<div class="image-wrap">',
+	    				'<img src="{{this.image}}" alt="Photo: Tim Krofecheck"/>',
+	    			'</div>',
 	    			'<span>{{{this.text}}}</span>',
 	    			'</div>',
 	            '{{/if}}',
@@ -23,6 +26,8 @@ myApp.About = (function() {
 
 		init: function() {
 			var self = this;
+
+			$(self.el).position().top = $('nav').innerHeight() + 'px';
 
 			// Inject Handlebars Template into <head>
 			myApp.Tools.injectScript(self.HandlebarsTemplate);

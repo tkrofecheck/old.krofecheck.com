@@ -145,7 +145,7 @@ body button[name='reload-tiles'] {
   height: auto;
   margin: 0 auto;
   align-items: center;
-  border-bottom: 3px solid #ffffff;
+  box-shadow: 0px 2px 15px 2px gray;
 }
 /* line 23, ../scss/_includes/_nav.scss */
 #nav-container nav div {
@@ -264,18 +264,80 @@ body button[name='reload-tiles'] {
   }
 }
 /* line 2, ../scss/_includes/_about.scss */
-#about-container span {
+#about-container div.bio {
+  padding: 1em;
+  /* BEGIN: Image Wrap Code
+   * Reference: http://webdesignerwall.com/tutorials/css3-image-styles-part-2
+   */
+  /* END: Image Wrap code */
+}
+/* line 5, ../scss/_includes/_about.scss */
+#about-container div.bio span {
   display: block;
   font-family: 'Avenir', Arial, sans-serif;
   font-size: 2em;
   line-height: 1.8em;
-  padding: 1em;
+}
+/* line 16, ../scss/_includes/_about.scss */
+#about-container div.bio .image-wrap {
+  position: relative;
+  display: inline-block;
+  max-width: 100%;
+  vertical-align: bottom;
+  text-align: left;
+  vertical-align: top;
+  float: left;
+  margin: 0 1em 1em 0;
+}
+/* line 27, ../scss/_includes/_about.scss */
+#about-container div.bio .image-wrap:after {
+  content: ' ';
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  border: solid 1px #1b1b1b;
+  -wekbit-box-shadow: inset 0 0 1px rgba(255, 255, 255, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 2px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: inset 0 0 1px rgba(255, 255, 255, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 2px rgba(0, 0, 0, 0.3);
+  box-shadow: inset 0 0 1px rgba(255, 255, 255, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 2px rgba(0, 0, 0, 0.3);
+  -webkit-border-radius: 7px;
+  -moz-border-radius: 7px;
+  border-radius: 7px;
+}
+/* line 45, ../scss/_includes/_about.scss */
+#about-container div.bio .image-wrap img {
+  vertical-align: bottom;
+  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+  -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+  /* BEGIN: Tim's Code */
+  display: block;
+  width: 200px;
+  height: auto;
+  /* END: Tim's Code */
 }
 
 @media only screen and (min-width: 320px) and (max-width: 444px) {
-  /* line 13, ../scss/_includes/_about.scss */
-  #about-container span {
+  /* line 69, ../scss/_includes/_about.scss */
+  #about-container div.bio {
+    padding: 10px;
+  }
+  /* line 72, ../scss/_includes/_about.scss */
+  #about-container div.bio span {
     font-size: 1em;
+    line-height: 1.5em;
+  }
+  /* line 76, ../scss/_includes/_about.scss */
+  #about-container div.bio .image-wrap {
+    margin: 0 10px 10px 0;
+  }
+  /* line 79, ../scss/_includes/_about.scss */
+  #about-container div.bio .image-wrap img {
+    width: 150px;
   }
 }
 /* line 1, ../scss/_includes/_resume.scss */

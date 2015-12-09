@@ -116,12 +116,18 @@ define(['jquery', 'underscore', 'handlebars', 'masonry', 'tools'],
                 var $sections = $('section');
 
                 $.each($sections, function() {
-                    var $section = $(this);
+                    var $section = $(this),
+                        extraPadding = 0;
+
+                    console.log($section);
+                    if ($section.context.id === 'portfolio-container') {
+                        extraPadding = 10;
+                    }
 
                     // nav on top covers, add relative position to display properly
                     // toolbar on bottom covers, add margin to show everything
                     $section.css({
-                        top : $('#nav-container nav').innerHeight() + 10 // add a little extra padding
+                        top : $('#nav-container nav').outerHeight() + extraPadding
                     });
                 });
             });
