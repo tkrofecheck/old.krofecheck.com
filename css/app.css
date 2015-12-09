@@ -263,6 +263,15 @@ body button[name='reload-tiles'] {
     display: none;
   }
 }
+/* line 2, ../scss/_includes/_about.scss */
+#about-container span {
+  display: block;
+  font-family: 'Avenir', Arial, sans-serif;
+  font-size: 2em;
+  line-height: 1.8em;
+  padding: 1em;
+}
+
 /* line 1, ../scss/_includes/_resume.scss */
 #resume-container {
   display: none;
