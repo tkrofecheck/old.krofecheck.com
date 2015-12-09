@@ -11,7 +11,8 @@ define(['jquery', 'underscore', 'handlebars', 'masonry', 'tools'],
         // Fallback for icon font (CDN --> Local)
         $(function() {
             var $span = $('<span class="icon-facebook-square" style="display:none"></span>').appendTo('body');
-            if ($span.css('fontFamily') !== 'icons' ) {
+            console.log($span.css('fontFamily'));
+            if ($span.css('fontFamily') !== 'Times' ) {
                 // Fallback Link
                 $('<link rel="stylesheet" href="css/icons.css" />').appendTo('head');
             }
