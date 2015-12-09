@@ -340,6 +340,12 @@ body button[name='reload-tiles'] {
     width: 150px;
   }
 }
+@media only screen and (min-width: 768px) {
+  /* line 89, ../scss/_includes/_about.scss */
+  #about-container div.bio .image-wrap img {
+    width: 300px;
+  }
+}
 /* line 1, ../scss/_includes/_resume.scss */
 #resume-container {
   display: none;
