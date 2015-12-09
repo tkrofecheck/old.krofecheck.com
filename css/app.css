@@ -157,9 +157,8 @@ body button[name='reload-tiles'] {
 #nav-container nav a {
   position: relative;
   display: block;
-  font-family: Arial, sans-serif;
+  font-family: Avenir, Arial, sans-serif;
   font-size: 1.5em;
-  font-weight: bold;
   color: #ffffff;
   padding: 8px 0;
   width: calc(100% / 3);
@@ -169,23 +168,23 @@ body button[name='reload-tiles'] {
   float: left;
 }
 
-/* line 47, ../scss/_includes/_nav.scss */
+/* line 46, ../scss/_includes/_nav.scss */
 .no-touch a:hover {
   color: #ff0000 !important;
 }
-/* line 51, ../scss/_includes/_nav.scss */
+/* line 50, ../scss/_includes/_nav.scss */
 .no-touch a:visited {
   color: #ffffff;
 }
 
-/* line 56, ../scss/_includes/_nav.scss */
+/* line 55, ../scss/_includes/_nav.scss */
 .tile-settings {
   position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
 }
-/* line 62, ../scss/_includes/_nav.scss */
+/* line 61, ../scss/_includes/_nav.scss */
 .tile-settings .toolbar {
   position: absolute;
   bottom: 0;
@@ -193,7 +192,7 @@ body button[name='reload-tiles'] {
   background-color: #000000;
   border-top: 3px solid #ffffff;
 }
-/* line 69, ../scss/_includes/_nav.scss */
+/* line 68, ../scss/_includes/_nav.scss */
 .tile-settings .toolbar .header {
   color: #ffffff;
   text-align: center;
@@ -201,12 +200,12 @@ body button[name='reload-tiles'] {
   font-weight: 600;
   font-family: Arial, sans-serif;
 }
-/* line 77, ../scss/_includes/_nav.scss */
+/* line 76, ../scss/_includes/_nav.scss */
 .tile-settings .toolbar .buttons {
   width: 100%;
   text-align: center;
 }
-/* line 82, ../scss/_includes/_nav.scss */
+/* line 81, ../scss/_includes/_nav.scss */
 .tile-settings .toolbar input[type="radio"], .tile-settings .toolbar input[type="checkbox"], .tile-settings .toolbar input[type="button"] {
   -webkit-appearance: button;
   /* WebKit */
@@ -228,37 +227,37 @@ body button[name='reload-tiles'] {
   padding: 5px;
   text-align: center;
 }
-/* line 98, ../scss/_includes/_nav.scss */
+/* line 97, ../scss/_includes/_nav.scss */
 .tile-settings .toolbar input[type="radio"]:checked, .tile-settings .toolbar input[type="radio"]:active, .tile-settings .toolbar input[type="checkbox"]:checked, .tile-settings .toolbar input[type="checkbox"]:active, .tile-settings .toolbar input[type="button"]:checked, .tile-settings .toolbar input[type="button"]:active {
   background-color: #ff0000;
 }
-/* line 104, ../scss/_includes/_nav.scss */
+/* line 103, ../scss/_includes/_nav.scss */
 .tile-settings .toolbar input#size-normal:after {
   content: "Normal";
 }
-/* line 110, ../scss/_includes/_nav.scss */
+/* line 109, ../scss/_includes/_nav.scss */
 .tile-settings .toolbar input#size-tile2x:after {
   content: "Large";
 }
-/* line 116, ../scss/_includes/_nav.scss */
+/* line 115, ../scss/_includes/_nav.scss */
 .tile-settings .toolbar input#size-gigante:after {
   content: "Gigante";
 }
-/* line 122, ../scss/_includes/_nav.scss */
+/* line 121, ../scss/_includes/_nav.scss */
 .tile-settings .toolbar input#remove-tiles:after {
   content: "Remove Tiles (OFF)";
 }
-/* line 127, ../scss/_includes/_nav.scss */
+/* line 126, ../scss/_includes/_nav.scss */
 .tile-settings .toolbar input#remove-tiles:checked:after, .tile-settings .toolbar input#remove-tiles:active:after {
   content: "Remove Tiles (ON)";
 }
 
 @media only screen and (min-width: 320px) and (max-width: 444px) {
-  /* line 141, ../scss/_includes/_nav.scss */
+  /* line 140, ../scss/_includes/_nav.scss */
   .tile-settings .toolbar input[name='size'] {
     display: none;
   }
-  /* line 144, ../scss/_includes/_nav.scss */
+  /* line 143, ../scss/_includes/_nav.scss */
   .tile-settings .toolbar label[for="size-normal"], .tile-settings .toolbar label[for="size-tile2x"], .tile-settings .toolbar label[for="size-gigante"] {
     display: none;
   }
