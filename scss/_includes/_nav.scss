@@ -22,22 +22,27 @@
 
 		div {
 			position: relative;
-			display: block;
-			width: calc(100% / 3);
+		    vertical-align: middle;
+		    text-align: center;
+		    padding: 5px;
+
+		    &.social {
+		    	width: 25%;
+		    }
+		    &.site {
+		    	width: 75%;
+		    }
 		}
 
 		a {
 			position: relative;
-			display: block;
-			font-family: Avenir, Arial, sans-serif;
-			font-size: 1.5em;
-			color: #ffffff;
-			padding: 8px 0;
-			width: calc(100% / 3);
-			align-self: center;
-			text-align: center;
-			text-decoration: none;
-			float: left;
+		    display: -webkit-flex;
+		    font-family: Avenir, Arial, sans-serif;
+		    font-size: 1.5em;
+		    color: #ffffff;
+		    width: 50%;
+		    text-decoration: none;
+		    float: left;
 		}
 	}
 }

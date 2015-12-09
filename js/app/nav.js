@@ -18,11 +18,13 @@ myApp.Nav = (function() {
                         '{{/if}}',
                     '{{/each}}',
                     '</div>',
+                    '<div class="site">',
                     '{{#each site-links}}',
                     '{{#if this.display}}',
                     '<a class="{{this.class}}">{{this.text}}</a>',
                     '{{/if}}',
                     '{{/each}}',
+                    '</div>',
                 '</nav>'
             )
         },

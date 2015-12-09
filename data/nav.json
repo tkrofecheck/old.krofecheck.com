@@ -2,12 +2,12 @@
 	"social" : [
 		{
 			"display": true,
-			"font-icon": "ion-social-github",
+			"font-icon": "icon-git-square",
 			"url": "https://github.com/tkrofecheck"
 		},
 		{
 			"display": true,
-			"font-icon": "ion-social-linkedin-outline",
+			"font-icon": "icon-linkedin-square",
 			"url": "http://www.linkedin.com/in/tkrofecheck"
 		}
 	],

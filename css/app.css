@@ -150,41 +150,47 @@ body button[name='reload-tiles'] {
 /* line 23, ../scss/_includes/_nav.scss */
 #nav-container nav div {
   position: relative;
-  display: block;
-  width: calc(100% / 3);
+  vertical-align: middle;
+  text-align: center;
+  padding: 5px;
 }
 /* line 29, ../scss/_includes/_nav.scss */
+#nav-container nav div.social {
+  width: 25%;
+}
+/* line 32, ../scss/_includes/_nav.scss */
+#nav-container nav div.site {
+  width: 75%;
+}
+/* line 37, ../scss/_includes/_nav.scss */
 #nav-container nav a {
   position: relative;
-  display: block;
+  display: -webkit-flex;
   font-family: Avenir, Arial, sans-serif;
   font-size: 1.5em;
   color: #ffffff;
-  padding: 8px 0;
-  width: calc(100% / 3);
-  align-self: center;
-  text-align: center;
+  width: 50%;
   text-decoration: none;
   float: left;
 }
 
-/* line 46, ../scss/_includes/_nav.scss */
+/* line 51, ../scss/_includes/_nav.scss */
 .no-touch a:hover {
   color: #ff0000 !important;
 }
-/* line 50, ../scss/_includes/_nav.scss */
+/* line 55, ../scss/_includes/_nav.scss */
 .no-touch a:visited {
   color: #ffffff;
 }
 
-/* line 55, ../scss/_includes/_nav.scss */
+/* line 60, ../scss/_includes/_nav.scss */
 .tile-settings {
   position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
 }
-/* line 61, ../scss/_includes/_nav.scss */
+/* line 66, ../scss/_includes/_nav.scss */
 .tile-settings .toolbar {
   position: absolute;
   bottom: 0;
@@ -192,7 +198,7 @@ body button[name='reload-tiles'] {
   background-color: #000000;
   border-top: 3px solid #ffffff;
 }
-/* line 68, ../scss/_includes/_nav.scss */
+/* line 73, ../scss/_includes/_nav.scss */
 .tile-settings .toolbar .header {
   color: #ffffff;
   text-align: center;
@@ -200,12 +206,12 @@ body button[name='reload-tiles'] {
   font-weight: 600;
   font-family: Arial, sans-serif;
 }
-/* line 76, ../scss/_includes/_nav.scss */
+/* line 81, ../scss/_includes/_nav.scss */
 .tile-settings .toolbar .buttons {
   width: 100%;
   text-align: center;
 }
-/* line 81, ../scss/_includes/_nav.scss */
+/* line 86, ../scss/_includes/_nav.scss */
 .tile-settings .toolbar input[type="radio"], .tile-settings .toolbar input[type="checkbox"], .tile-settings .toolbar input[type="button"] {
   -webkit-appearance: button;
   /* WebKit */
@@ -227,37 +233,37 @@ body button[name='reload-tiles'] {
   padding: 5px;
   text-align: center;
 }
-/* line 97, ../scss/_includes/_nav.scss */
+/* line 102, ../scss/_includes/_nav.scss */
 .tile-settings .toolbar input[type="radio"]:checked, .tile-settings .toolbar input[type="radio"]:active, .tile-settings .toolbar input[type="checkbox"]:checked, .tile-settings .toolbar input[type="checkbox"]:active, .tile-settings .toolbar input[type="button"]:checked, .tile-settings .toolbar input[type="button"]:active {
   background-color: #ff0000;
 }
-/* line 103, ../scss/_includes/_nav.scss */
+/* line 108, ../scss/_includes/_nav.scss */
 .tile-settings .toolbar input#size-normal:after {
   content: "Normal";
 }
-/* line 109, ../scss/_includes/_nav.scss */
+/* line 114, ../scss/_includes/_nav.scss */
 .tile-settings .toolbar input#size-tile2x:after {
   content: "Large";
 }
-/* line 115, ../scss/_includes/_nav.scss */
+/* line 120, ../scss/_includes/_nav.scss */
 .tile-settings .toolbar input#size-gigante:after {
   content: "Gigante";
 }
-/* line 121, ../scss/_includes/_nav.scss */
+/* line 126, ../scss/_includes/_nav.scss */
 .tile-settings .toolbar input#remove-tiles:after {
   content: "Remove Tiles (OFF)";
 }
-/* line 126, ../scss/_includes/_nav.scss */
+/* line 131, ../scss/_includes/_nav.scss */
 .tile-settings .toolbar input#remove-tiles:checked:after, .tile-settings .toolbar input#remove-tiles:active:after {
   content: "Remove Tiles (ON)";
 }
 
 @media only screen and (min-width: 320px) and (max-width: 444px) {
-  /* line 140, ../scss/_includes/_nav.scss */
+  /* line 145, ../scss/_includes/_nav.scss */
   .tile-settings .toolbar input[name='size'] {
     display: none;
   }
-  /* line 143, ../scss/_includes/_nav.scss */
+  /* line 148, ../scss/_includes/_nav.scss */
   .tile-settings .toolbar label[for="size-normal"], .tile-settings .toolbar label[for="size-tile2x"], .tile-settings .toolbar label[for="size-gigante"] {
     display: none;
   }

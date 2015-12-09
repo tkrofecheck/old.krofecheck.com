@@ -10,10 +10,10 @@ define(['jquery', 'underscore', 'handlebars', 'masonry', 'tools'],
 
         // Fallback for icon font (CDN --> Local)
         $(function() {
-            var $span = $('<span class="ionicons" style="display:none"></span>').appendTo('body');
-            if ($span.css('fontFamily') !== 'Ionicons' ) {
+            var $span = $('<span class="icon-facebook-square" style="display:none"></span>').appendTo('body');
+            if ($span.css('fontFamily') !== 'icons' ) {
                 // Fallback Link
-                $('<link rel="stylesheet" href="css/ionicons.min.css" />').appendTo('head');
+                $('<link rel="stylesheet" href="css/icons.css" />').appendTo('head');
             }
             $span.remove();
         });
