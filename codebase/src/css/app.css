@@ -1,0 +1,491 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+/* line 6, ../scss/_includes/_reset.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 62.5%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+/* line 27, ../scss/_includes/_reset.scss */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  position: relative;
+  display: block;
+}
+
+/* line 32, ../scss/_includes/_reset.scss */
+body {
+  line-height: 1;
+}
+
+/* line 35, ../scss/_includes/_reset.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 38, ../scss/_includes/_reset.scss */
+blockquote, q {
+  quotes: none;
+}
+
+/* line 41, ../scss/_includes/_reset.scss */
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+/* line 46, ../scss/_includes/_reset.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 1, ../scss/_includes/_main.scss */
+body {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+}
+/* line 7, ../scss/_includes/_main.scss */
+body.about-active {
+  background: none;
+}
+/* line 11, ../scss/_includes/_main.scss */
+body.resume-active {
+  background: none;
+}
+/* line 15, ../scss/_includes/_main.scss */
+body.portfolio-active {
+  background-image: url("../images/green_cup.png");
+  background-repeat: repeat;
+}
+/* line 20, ../scss/_includes/_main.scss */
+body button[name='reload-tiles'] {
+  display: inline-block;
+  padding: 5px;
+}
+
+/* line 26, ../scss/_includes/_main.scss */
+.visible {
+  visibility: visible !important;
+}
+
+/* line 1, ../scss/_includes/_tools.scss */
+.modal {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.75);
+  z-index: 10001;
+}
+/* line 11, ../scss/_includes/_tools.scss */
+.modal .popup {
+  position: relative;
+  display: block;
+  top: 200px;
+  background-color: #ffffff;
+  font-family: Arial, sans-serif;
+  width: 40%;
+  height: auto;
+  padding: 25px;
+  opacity: 1;
+  margin: 0 auto;
+}
+/* line 23, ../scss/_includes/_tools.scss */
+.modal .popup button {
+  font-size: 1.25em;
+  width: auto;
+  height: auto;
+  padding: 10px;
+}
+
+/* line 1, ../scss/_includes/_nav.scss */
+#nav-container {
+  position: fixed;
+  -webkit-backface-visibility: hidden;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: auto;
+  z-index: 10000;
+}
+/* line 11, ../scss/_includes/_nav.scss */
+#nav-container nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  background-color: #000000;
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  align-items: center;
+  box-shadow: 0px 2px 15px 2px gray;
+}
+/* line 23, ../scss/_includes/_nav.scss */
+#nav-container nav div {
+  position: relative;
+  vertical-align: middle;
+  text-align: center;
+  padding: 5px;
+}
+/* line 29, ../scss/_includes/_nav.scss */
+#nav-container nav div.social {
+  width: 25%;
+}
+/* line 32, ../scss/_includes/_nav.scss */
+#nav-container nav div.site {
+  width: 75%;
+}
+/* line 37, ../scss/_includes/_nav.scss */
+#nav-container nav a {
+  position: relative;
+  display: -webkit-flex;
+  font-family: Avenir, Arial, sans-serif;
+  font-size: 1.5em;
+  color: #ffffff;
+  width: 50%;
+  text-decoration: none;
+  float: left;
+}
+
+/* line 51, ../scss/_includes/_nav.scss */
+.no-touch a:hover {
+  color: #ff0000 !important;
+}
+/* line 55, ../scss/_includes/_nav.scss */
+.no-touch a:visited {
+  color: #ffffff;
+}
+
+/* line 60, ../scss/_includes/_nav.scss */
+.tile-settings {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+/* line 66, ../scss/_includes/_nav.scss */
+.tile-settings .toolbar {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: #000000;
+  border-top: 3px solid #ffffff;
+}
+/* line 73, ../scss/_includes/_nav.scss */
+.tile-settings .toolbar .header {
+  color: #ffffff;
+  text-align: center;
+  font-size: 1.25em;
+  font-weight: 600;
+  font-family: Arial, sans-serif;
+}
+/* line 81, ../scss/_includes/_nav.scss */
+.tile-settings .toolbar .buttons {
+  width: 100%;
+  text-align: center;
+}
+/* line 86, ../scss/_includes/_nav.scss */
+.tile-settings .toolbar input[type="radio"], .tile-settings .toolbar input[type="checkbox"], .tile-settings .toolbar input[type="button"] {
+  -webkit-appearance: button;
+  /* WebKit */
+  -moz-appearance: button;
+  /* Mozilla */
+  -o-appearance: button;
+  /* Opera */
+  -ms-appearance: button;
+  /* Internet Explorer */
+  appearance: button;
+  /* CSS3 */
+  display: inline-block;
+  font-family: Arial, sans-serif;
+  font-size: 1em;
+  background-color: #ffffff;
+  border: 1px solid #000;
+  width: auto;
+  height: auto;
+  padding: 5px;
+  text-align: center;
+}
+/* line 102, ../scss/_includes/_nav.scss */
+.tile-settings .toolbar input[type="radio"]:checked, .tile-settings .toolbar input[type="radio"]:active, .tile-settings .toolbar input[type="checkbox"]:checked, .tile-settings .toolbar input[type="checkbox"]:active, .tile-settings .toolbar input[type="button"]:checked, .tile-settings .toolbar input[type="button"]:active {
+  background-color: #ff0000;
+}
+/* line 108, ../scss/_includes/_nav.scss */
+.tile-settings .toolbar input#size-normal:after {
+  content: "Normal";
+}
+/* line 114, ../scss/_includes/_nav.scss */
+.tile-settings .toolbar input#size-tile2x:after {
+  content: "Large";
+}
+/* line 120, ../scss/_includes/_nav.scss */
+.tile-settings .toolbar input#size-gigante:after {
+  content: "Gigante";
+}
+/* line 126, ../scss/_includes/_nav.scss */
+.tile-settings .toolbar input#remove-tiles:after {
+  content: "Remove Tiles (OFF)";
+}
+/* line 131, ../scss/_includes/_nav.scss */
+.tile-settings .toolbar input#remove-tiles:checked:after, .tile-settings .toolbar input#remove-tiles:active:after {
+  content: "Remove Tiles (ON)";
+}
+
+@media only screen and (min-width: 320px) and (max-width: 444px) {
+  /* line 145, ../scss/_includes/_nav.scss */
+  .tile-settings .toolbar input[name='size'] {
+    display: none;
+  }
+  /* line 148, ../scss/_includes/_nav.scss */
+  .tile-settings .toolbar label[for="size-normal"], .tile-settings .toolbar label[for="size-tile2x"], .tile-settings .toolbar label[for="size-gigante"] {
+    display: none;
+  }
+}
+/* line 2, ../scss/_includes/_about.scss */
+#about-container div.bio {
+  padding: 1em;
+  /* BEGIN: Image Wrap Code
+   * Reference: http://webdesignerwall.com/tutorials/css3-image-styles-part-2
+   */
+  /* END: Image Wrap code */
+}
+/* line 5, ../scss/_includes/_about.scss */
+#about-container div.bio span {
+  display: block;
+  font-family: 'Avenir', Arial, sans-serif;
+  font-size: 2em;
+  line-height: 1.8em;
+}
+/* line 16, ../scss/_includes/_about.scss */
+#about-container div.bio .image-wrap {
+  position: relative;
+  display: inline-block;
+  max-width: 100%;
+  vertical-align: bottom;
+  text-align: left;
+  vertical-align: top;
+  float: left;
+  margin: 0 1em 1em 0;
+}
+/* line 27, ../scss/_includes/_about.scss */
+#about-container div.bio .image-wrap:after {
+  content: ' ';
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  border: solid 1px #1b1b1b;
+  -wekbit-box-shadow: inset 0 0 1px rgba(255, 255, 255, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 2px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: inset 0 0 1px rgba(255, 255, 255, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 2px rgba(0, 0, 0, 0.3);
+  box-shadow: inset 0 0 1px rgba(255, 255, 255, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 2px rgba(0, 0, 0, 0.3);
+  -webkit-border-radius: 7px;
+  -moz-border-radius: 7px;
+  border-radius: 7px;
+}
+/* line 45, ../scss/_includes/_about.scss */
+#about-container div.bio .image-wrap img {
+  vertical-align: bottom;
+  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+  -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+  /* BEGIN: Tim's Code */
+  display: block;
+  width: 200px;
+  height: auto;
+  /* END: Tim's Code */
+}
+
+@media only screen and (min-width: 320px) and (max-width: 444px) {
+  /* line 69, ../scss/_includes/_about.scss */
+  #about-container div.bio {
+    padding: 10px;
+  }
+  /* line 72, ../scss/_includes/_about.scss */
+  #about-container div.bio span {
+    font-size: 1em;
+    line-height: 1.5em;
+  }
+  /* line 76, ../scss/_includes/_about.scss */
+  #about-container div.bio .image-wrap {
+    margin: 0 10px 10px 0;
+  }
+  /* line 79, ../scss/_includes/_about.scss */
+  #about-container div.bio .image-wrap img {
+    width: 150px;
+  }
+}
+@media only screen and (min-width: 768px) {
+  /* line 89, ../scss/_includes/_about.scss */
+  #about-container div.bio .image-wrap img {
+    width: 300px;
+  }
+}
+/* line 1, ../scss/_includes/_resume.scss */
+#resume-container {
+  display: none;
+}
+
+/* line 1, ../scss/_includes/_portfolio.scss */
+#portfolio-container {
+  top: 50px;
+}
+
+/* line 6, ../scss/_includes/_portfolio.scss */
+#portfolio-projects.grid {
+  margin: 0 auto !important;
+}
+/* line 9, ../scss/_includes/_portfolio.scss */
+#portfolio-projects.grid .grid-item {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+  box-shadow: 2px 2px 3px #565656;
+}
+/* line 17, ../scss/_includes/_portfolio.scss */
+#portfolio-projects.grid .grid-item.tile-width {
+  max-width: 200px;
+}
+/* line 21, ../scss/_includes/_portfolio.scss */
+#portfolio-projects.grid .grid-item.tile-width-x2 {
+  max-width: 410px !important;
+}
+/* line 25, ../scss/_includes/_portfolio.scss */
+#portfolio-projects.grid .grid-item img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+/* line 31, ../scss/_includes/_portfolio.scss */
+#portfolio-projects.grid .grid-item span {
+  position: absolute;
+  box-sizing: border-box;
+  visibility: hidden;
+  width: 100%;
+  word-wrap: break-word;
+  /* prevent overflow from long URLs  */
+  font-family: Arial, sans-serif;
+  font-size: 1.5em;
+  line-height: 1.25em;
+  padding: 10px;
+  bottom: 0;
+  background-color: #000000;
+  opacity: 0.75;
+  color: #ffffff;
+  height: auto;
+  max-height: 100%;
+  overflow-y: auto;
+}
+/* line 49, ../scss/_includes/_portfolio.scss */
+#portfolio-projects.grid .grid-item span a {
+  text-decoration: none;
+  color: #ff0000;
+}
+
+/* line 62, ../scss/_includes/_portfolio.scss */
+.no-touch #portfolio-projects.grid .grid-item:hover {
+  background-color: #A2C;
+  border-color: white;
+  cursor: pointer;
+}
+/* line 69, ../scss/_includes/_portfolio.scss */
+.no-touch #portfolio-projects.grid .grid-item img:hover {
+  opacity: 0.5;
+}
+/* line 75, ../scss/_includes/_portfolio.scss */
+.no-touch #portfolio-projects.grid .grid-item span a:hover {
+  text-decoration: underline;
+}
+
+@media only screen and (min-width: 320px) and (max-width: 444px) {
+  /* line 85, ../scss/_includes/_portfolio.scss */
+  #portfolio-container {
+    padding: 0 10px !important;
+  }
+
+  /* line 90, ../scss/_includes/_portfolio.scss */
+  #portfolio-projects.grid {
+    width: 100% !important;
+  }
+  /* line 93, ../scss/_includes/_portfolio.scss */
+  #portfolio-projects.grid .grid-item,
+  #portfolio-projects.grid .grid-item--width2,
+  #portfolio-projects.grid .gigante {
+    max-width: none !important;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+  /* line 106, ../scss/_includes/_portfolio.scss */
+  #portfolio-projects.grid .grid-item span {
+    font-size: 3vw;
+    line-height: normal !important;
+  }
+  /* line 112, ../scss/_includes/_portfolio.scss */
+  #portfolio-projects.grid .grid-item.tile-width-x2 span {
+    font-size: 4vw;
+  }
+  /* line 118, ../scss/_includes/_portfolio.scss */
+  #portfolio-projects.grid .grid-item.gigante span {
+    font-size: 5vw;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+  /* line 130, ../scss/_includes/_portfolio.scss */
+  #portfolio-projects.grid .grid-item {
+    max-width: 175px !important;
+  }
+  /* line 133, ../scss/_includes/_portfolio.scss */
+  #portfolio-projects.grid .grid-item.tile-width-x2 {
+    max-width: 350px !important;
+  }
+  /* line 137, ../scss/_includes/_portfolio.scss */
+  #portfolio-projects.grid .grid-item.gigante {
+    max-width: 748px !important;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+  /* line 148, ../scss/_includes/_portfolio.scss */
+  #portfolio-projects.grid .grid-item {
+    max-width: 240px !important;
+  }
+  /* line 151, ../scss/_includes/_portfolio.scss */
+  #portfolio-projects.grid .grid-item.tile-width-x2 {
+    max-width: 480px !important;
+  }
+  /* line 155, ../scss/_includes/_portfolio.scss */
+  #portfolio-projects.grid .grid-item.gigante {
+    max-width: 980px !important;
+  }
+}
