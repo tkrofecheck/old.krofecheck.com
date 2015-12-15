@@ -2,7 +2,7 @@ var myApp;
 if (!myApp) { myApp = {}; }
 
 //Load Web App JavaScript Dependencies/Plugins
-define(['jquery', 'underscore', 'handlebars', 'masonry'],
+define(['jquery', 'underscore', 'handlebars', 'masonry', 'app/tools'],
     function($, _, Handlebars, Masonry) {
         var self = this;
 
@@ -110,9 +110,7 @@ define(['jquery', 'underscore', 'handlebars', 'masonry'],
                     myApp.Tools.getSections();
                 }
             });
-        });
 
-        $(function() {
             // add handlebars template for custom modal to HEAD
             myApp.Tools.customModal.injectScript();
 

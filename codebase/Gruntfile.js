@@ -79,10 +79,12 @@ module.exports = function (grunt) {
 				dest: '<%= dirBuild %>/<%= dirCssPath %>/'
 			},
 			appjs: {
-				expand: true,
-				cwd: '<%= dirSrc %>/<%= dirJsPath %>/',
-				src: '**',
-				dest: '<%= dirBuild %>/<%= dirJsPath %>/'
+				files: [{
+					expand: true,
+					cwd: '<%= dirSrc %>/<%= dirJsPath %>/',
+					src: '**',
+					dest: '<%= dirBuild %>/<%= dirJsPath %>/'
+				}]
 			},
 			libjs: {
 				files: [{
@@ -185,14 +187,13 @@ module.exports = function (grunt) {
 					preserveComments: false, // set to true to keep comments in the code
 					compress: {
 						drop_console: true // removes all console.log incase there left in the code
-					},
-					wrap: true
+					}
 				},
-				files:  [{
+				files: [{
 					'<%= dirDist %>/<%= dirJsPath %>/app.js': ['<%= dirBuild %>/<%= dirJsPath %>/app.js'],
+					'<%= dirDist %>/<%= dirJsPath %>/app/tools.js': ['<%= dirBuild %>/<%= dirJsPath %>/app/tools.js'],
 					'<%= dirDist %>/<%= dirJsPath %>/app/main.js': [
 						'<%= dirBuild %>/<%= dirJsPath %>/app/main.js',
-						'<%= dirBuild %>/<%= dirJsPath %>/app/tools.js',
 						'<%= dirBuild %>/<%= dirJsPath %>/app/nav.js',
 						'<%= dirBuild %>/<%= dirJsPath %>/app/about.js',
 						'<%= dirBuild %>/<%= dirJsPath %>/app/resume.js',
