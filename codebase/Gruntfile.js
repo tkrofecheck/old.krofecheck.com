@@ -12,7 +12,7 @@ module.exports = function (grunt) {
 		grunt.log.ok('grunt js		build js');
 	});
 	// Build all
-	grunt.registerTask('build', ['clean','copy:html','copy:json','sass','copy:css','copy:appjs','copy:libjs','imagemin','copy:images','minjson','cssmin','concat:js','jshint','uglify']);
+	grunt.registerTask('build', ['clean','copy:html','copy:json','sass','copy:css','copy:appjs','copy:libjs','imagemin','copy:images','minjson','cssmin','jshint','concat:js','uglify']);
 	// Build CSS
 	grunt.registerTask('css', ['clean','sass','copy:css','cssmin']);
 	// Build JS
@@ -64,134 +64,59 @@ module.exports = function (grunt) {
 		copy: {
 			html: {
 				files: [{
-					expand: true,
-					cwd: '',
-					src: ['*.html'],
-					dest: '<%= dirBuild %>',
-					ext: '.html'
+					src: '*.html',
+					dest: '<%= dirBuild %>/'
 				},
 				{
-					expand: true,
-					cwd: '',
-					src: ['*.html'],
-					dest: '<%= dirDist %>',
-					ext: '.html'
+					src: '*.html',
+					dest: '<%= dirDist %>/'
 				}]
 			},
 			css: {
-				files: [{
-					expand: true,
-					cwd: '<%= dirSrc %>/<%= dirCssPath %>',
-					src: ['*.css'],
-					dest: '<%= dirBuild %>/<%= dirCssPath %>/',
-					ext: '.css'
-				}]
+				expand: true,
+				cwd: '<%= dirSrc %>/<%= dirCssPath %>/',
+				src: 'icons.css',
+				dest: '<%= dirBuild %>/<%= dirCssPath %>/'
 			},
 			appjs: {
-				files: [{
-					expand: true,
-					cwd: '<%= dirSrc %>/<%= dirJsPath %>',
-					src: ['*.js'],
-					dest: '<%= dirBuild %>/<%= dirJsPath %>/',
-					ext: '.js'
-				}]
+				expand: true,
+				cwd: '<%= dirSrc %>/<%= dirJsPath %>/',
+				src: '**',
+				dest: '<%= dirBuild %>/<%= dirJsPath %>/'
 			},
 			libjs: {
 				files: [{
 					expand: true,
-					cwd: '<%= dirSrc %>/<%= dirJsPath %>/lib',
-					src: ['*.js'],
+					cwd: '<%= dirSrc %>/<%= dirJsPath %>/lib/',
+					src: '**',
 					dest: '<%= dirBuild %>/<%= dirJsPath %>/lib/',
-					ext: '.js'
 				},
 				{
 					expand: true,
-					cwd: '<%= dirSrc %>/<%= dirJsPath %>/lib',
-					src: ['*.map'],
-					dest: '<%= dirBuild %>/<%= dirJsPath %>/lib/',
-					ext: '.map'
-				},
-				{
-					expand: true,
-					cwd: '<%= dirSrc %>/<%= dirJsPath %>/lib',
-					src: ['*.js'],
+					cwd: '<%= dirBuild %>/<%= dirJsPath %>/lib/',
+					src: '**',
 					dest: '<%= dirDist %>/<%= dirJsPath %>/lib/',
-					ext: '.js'
-				},
-				{
-					expand: true,
-					cwd: '<%= dirSrc %>/<%= dirJsPath %>/lib',
-					src: ['*.map'],
-					dest: '<%= dirDist %>/<%= dirJsPath %>/lib/',
-					ext: '.map'
 				}]
 			},
 			images: {
 				files: [{
 					expand: true,
-					cwd: '<%= dirSrc %>/<%= dirImgPath %>',
-					src: ['*.jpg'],
-					dest: '<%= dirBuild %>/<%= dirImgPath %>',
-					ext: '.jpg'
+					cwd: '<%= dirBuild %>/<%= dirImgPath %>/',
+					src: '**',
+					dest: '<%= dirDist %>/<%= dirImgPath %>/',
 				},
 				{
 					expand: true,
-					cwd: '<%= dirSrc %>/<%= dirImgPath %>/portfolio',
-					src: ['**/*.jpg'],
-					dest: '<%= dirBuild %>/<%= dirImgPath %>/portfolio',
-					ext: '.jpg'
-				},
-				{
-					expand: true,
-					cwd: '<%= dirSrc %>/<%= dirImgPath %>',
-					src: ['*.jpg'],
-					dest: '<%= dirDist %>/<%= dirImgPath %>',
-					ext: '.jpg'
-				},
-				{
-					expand: true,
-					cwd: '<%= dirSrc %>/<%= dirImgPath %>/portfolio',
-					src: ['**/*.jpg'],
-					dest: '<%= dirDist %>/<%= dirImgPath %>/portfolio',
-					ext: '.jpg'
-				},
-				{
-					expand: true,
-					cwd: '<%= dirSrc %>/<%= dirImgPath %>',
-					src: ['*.png'],
-					dest: '<%= dirBuild %>/<%= dirImgPath %>',
-					ext: '.png'
-				},
-				{
-					expand: true,
-					cwd: '<%= dirSrc %>/<%= dirImgPath %>/portfolio',
-					src: ['**/*.png'],
-					dest: '<%= dirBuild %>/<%= dirImgPath %>/portfolio',
-					ext: '.png'
-				},
-				{
-					expand: true,
-					cwd: '<%= dirSrc %>/<%= dirImgPath %>',
-					src: ['*.png'],
-					dest: '<%= dirDist %>/<%= dirImgPath %>',
-					ext: '.png'
-				},
-				{
-					expand: true,
-					cwd: '<%= dirSrc %>/<%= dirImgPath %>/portfolio',
-					src: ['**/*.png'],
-					dest: '<%= dirDist %>/<%= dirImgPath %>/portfolio',
-					ext: '.png'
+					cwd: '<%= dirBuild %>/<%= dirImgPath %>/portfolio/',
+					src: '**/*',
+					dest: '<%= dirDist %>/<%= dirImgPath %>/portfolio/'
 				}]
 			},
 			json: {
-				files: [{
-					expand: true,
-					cwd: '<%= dirSrc %>/<%= dirDataPath %>',
-					src: ['*.json'],
-					dest: '<%= dirBuild %>/<%= dirDataPath %>',
-					ext: '.json'
-				}]
+				expand: true,
+				cwd: '<%= dirSrc %>/<%= dirDataPath %>/',
+				src: '**',
+				dest: '<%= dirBuild %>/<%= dirDataPath %>/'
 			}
 		},
 		cssmin: {
@@ -211,8 +136,8 @@ module.exports = function (grunt) {
 		jshint: {
 			all: [
 				'Gruntfile.js',
-				'<%= dirSrc %>/js/*.js',
-				'<%= dirSrc %>/js/app/*.js'
+				'<%= dirSrc %>/<%= dirJsPath %>/*.js',
+				'<%= dirSrc %>/<%= dirJsPath %>/app/*.js'
 			]
 		},
 		concat: {
@@ -221,9 +146,9 @@ module.exports = function (grunt) {
 					separator: ';',
 				},
 				src: [
-					'<%= dirSrc %>/js/app/*.js'
+					'<%= dirSrc %>/<%= dirJsPath %>/app/*.js'
 				],
-				dest: '<%= dirBuild %>/js/app/main.js'
+				dest: '<%= dirBuild %>/<%= dirJsPath %>/app/main.js'
 			}
 		},
 		minjson: {
@@ -239,21 +164,40 @@ module.exports = function (grunt) {
 			}
 		},
 		uglify: {
-			dist: {
+			build: {
 				options: {
 					preserveComments: false, // set to true to keep comments in the code
 					compress: {
 						drop_console: false // removes all console.log incase there left in the code
 					},
-					//wrap: true,
 					sourceMap: true,
 					sourceMapIncludeSources: true
 				},
 				files:  [{
 					expand: true,
-					cwd: '<%= dirBuild %>/js',
+					cwd: '<%= dirSrc %>/<%= dirJsPath %>',
 					src: ['*.js','app/*.js'],
-					dest: '<%= dirDist %>/<%= dirJsPath %>/'
+					dest: '<%= dirBuild %>/<%= dirJsPath %>/'
+				}]
+			},
+			dist: {
+				options: {
+					preserveComments: false, // set to true to keep comments in the code
+					compress: {
+						drop_console: true // removes all console.log incase there left in the code
+					},
+					wrap: true
+				},
+				files:  [{
+					'<%= dirDist %>/<%= dirJsPath %>/app.js': ['<%= dirBuild %>/<%= dirJsPath %>/app.js'],
+					'<%= dirDist %>/<%= dirJsPath %>/app/main.js': [
+						'<%= dirBuild %>/<%= dirJsPath %>/app/main.js',
+						'<%= dirBuild %>/<%= dirJsPath %>/app/tools.js',
+						'<%= dirBuild %>/<%= dirJsPath %>/app/nav.js',
+						'<%= dirBuild %>/<%= dirJsPath %>/app/about.js',
+						'<%= dirBuild %>/<%= dirJsPath %>/app/resume.js',
+						'<%= dirBuild %>/<%= dirJsPath %>/app/portfolio.js'
+					],
 				}]
 			}
 		},
@@ -265,8 +209,8 @@ module.exports = function (grunt) {
 				files: [
 					'<%= dirSrc %>/data/*.json',
 					'<%= dirSrc %>/scss/*.scss',
-					'<%= dirSrc %>/js/*.js',
-					'<%= dirSrc %>/js/app/*.js'
+					'<%= dirSrc %>/<%= dirJsPath %>/*.js',
+					'<%= dirSrc %>/<%= dirJsPath %>/app/*.js'
 				],
 				tasks: ['build'],
 				options: {
