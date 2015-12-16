@@ -144,8 +144,11 @@ define(['jquery', 'underscore', 'handlebars', 'masonry', 'app/tools'],
                 console.log('use data.min.json');
                 myApp.Tools.getData(myApp);
             } else {
-                console.log('use individual data files (JSON)');
-                myApp.Tools.getSections();
+                // Individual files uses for sections in 'build' (not concatenated into main.ms - require needed)
+                require(['app/nav', 'app/about', 'app/resume', 'app/portfolio'], function() {
+                    console.log('use individual data files (JSON)');
+                    myApp.Tools.getSections();
+                });
             }
         });
     }
