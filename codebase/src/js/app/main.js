@@ -2,7 +2,7 @@ var myApp;
 if (!myApp) { myApp = {}; }
 
 //Load Web App JavaScript Dependencies/Plugins
-define(['jquery', 'underscore', 'handlebars', 'masonry', 'app/tools'],
+define(['jquery', 'underscore', 'handlebars', 'masonry', 'tools'],
     function($, _, Handlebars, Masonry) {
         var self = this;
 

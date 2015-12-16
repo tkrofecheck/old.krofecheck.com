@@ -170,7 +170,15 @@ module.exports = function (grunt) {
 				options: {
 					preserveComments: false, // set to true to keep comments in the code
 					compress: {
-						drop_console: false // removes all console.log incase there left in the code
+						drop_console: false, // removes all console.log incase there left in the code
+						hoist_funs: true, // hoist function declarations
+						unused: true, // drop unreferenced functions and variables
+						if_return: true, // optimizations for if/return and if/continue
+						booleans: true, //various optimizations for boolean context
+						comparisons: true, // apply certain optimizations to binary nodes
+						conditionals: true, // apply optimizations for if-s and conditional expressions
+						properties: true, // rewrite property access using the dot notation
+						sequences: true // join consecutive simple statements using the comma operator
 					},
 					sourceMap: true,
 					sourceMapIncludeSources: true
@@ -186,8 +194,9 @@ module.exports = function (grunt) {
 				options: {
 					preserveComments: false, // set to true to keep comments in the code
 					compress: {
-						drop_console: true // removes all console.log incase there left in the code
-					}
+						drop_console: true, // removes all console.log incase there left in the code
+					},
+					//wrap: true
 				},
 				files: [{
 					'<%= dirDist %>/<%= dirJsPath %>/app.js': ['<%= dirBuild %>/<%= dirJsPath %>/app.js'],
