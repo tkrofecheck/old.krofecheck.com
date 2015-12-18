@@ -21,7 +21,7 @@ myApp.Portfolio = (function() {
 	            	/*'<h4>{{this.name}}</h4>',*/
 	        		'{{#each this.steps}}',
 	    				'<div class="grid-item tile-width{{#if this.width2}} tile-width-x2{{/if}}{{#if this.gigante}} gigante{{/if}}">',
-	    				'<img src="images/portfolio/{{../this.folder}}/{{this.image}}" />',
+	    				'<img src="images/portfolio/{{../this.folder}}/{{this.image}}?v=' + myApp.updated + '" />',
 	    				'{{#if this.text}}<span>{{this.text}}</span>{{/if}}',
 	    				'</div>',
 	        		'{{/each}}',

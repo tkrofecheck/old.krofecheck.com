@@ -12,7 +12,7 @@ module.exports = function (grunt) {
 		grunt.log.ok('grunt js		build js');
 	});
 	// Build all
-	grunt.registerTask('build', ['clean','copy:html','copy:json','sass','copy:css','copy:appjs','copy:libjs','imagemin','copy:images','minjson','cssmin','jshint','concat:js','uglify']);
+	grunt.registerTask('build', ['clean','copy:html','copy:json','sass','copy:css','copy:fonts','copy:appjs','copy:libjs','imagemin','copy:images','minjson','cssmin','jshint','concat:js','uglify']);
 	// Build CSS
 	grunt.registerTask('css', ['clean','sass','copy:css','cssmin']);
 	// Build JS
@@ -28,6 +28,7 @@ module.exports = function (grunt) {
 		dirDataPath : 'data',
 		dirJsPath : 'js',
 		dirCssPath : 'css',
+		dirFontPath : 'fonts',
 		dirImgPath : 'images',
 		// Build Tasks
 		clean: {
@@ -77,6 +78,20 @@ module.exports = function (grunt) {
 				cwd: '<%= dirSrc %>/<%= dirCssPath %>/',
 				src: 'icons.css',
 				dest: '<%= dirBuild %>/<%= dirCssPath %>/'
+			},
+			fonts: {
+				files: [{
+					expand: true,
+					cwd: '<%= dirSrc %>/<%= dirFontPath %>/',
+					src: '**',
+					dest: '<%= dirBuild %>/<%= dirFontPath %>/'
+				},
+				{
+					expand: true,
+					cwd: '<%= dirSrc %>/<%= dirFontPath %>/',
+					src: '**',
+					dest: '<%= dirDist %>/<%= dirFontPath %>/'
+				}]
 			},
 			appjs: {
 				files: [{

@@ -8,17 +8,6 @@ define(['jquery', 'underscore', 'handlebars', 'masonry', 'tools'],
 
         console.log('required plugins loaded...');
 
-        // Fallback for icon font (CDN --> Local)
-        $(function() {
-            var $span = $('<span class="icon-facebook-square" style="display:none"></span>').appendTo('body');
-            console.log($span.css('fontFamily'));
-            if ($span.css('fontFamily') !== 'Times' ) {
-                // Fallback Link
-                $('<link rel="stylesheet" href="css/icons.css" />').appendTo('head');
-            }
-            $span.remove();
-        });
-
         myApp.dynamicStylesheet = (function() {
             // Create the <style> tag
             var style = document.createElement("style");

@@ -36,6 +36,7 @@ myApp.About = (function() {
 	        myApp.Tools.setupListener(self, 'dataReady', function(passedValue) {
 				if (passedValue === true) {
 					//console.log('portfolio data ready');
+					myApp.updated = self.data.updated.time;
 					self.render();
 				}
 			});
@@ -53,6 +54,7 @@ myApp.About = (function() {
                     $.each(myApp.data, function() {
                         if ('about' in this) { // do not XHR if data attached to object
                             self.data = $.extend(true, self.data, this.about);
+                            myApp.updated = self.data.updated.time;
                             callSelf = false;
                             return true;
                         }

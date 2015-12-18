@@ -1,6 +1,6 @@
-var myApp = {
-    dataFile: 'data.min.json'
-}; // Namespace
+var myApp = { // Namespace
+        dataFile: 'data.min.json'
+    };
 
 // Is browser capable of touch events, add class to html tag (simpler than using modernizr)
 // This should work on all desktop and mobile devices including iOS, Android, Opera, Chrome, IE, Safari and Windows Phone.
