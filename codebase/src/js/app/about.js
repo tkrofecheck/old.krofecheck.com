@@ -1,6 +1,3 @@
-var myApp;
-if (!myApp) { myApp = {}; }
-
 myApp.About = (function() {
 	return {
 		el: '#about-container',
@@ -17,7 +14,7 @@ myApp.About = (function() {
 	    			'<div class="bio">',
 	    			'<h4>{{this.name}}</h4>',
 	    			'<div class="image-wrap">',
-	    				'<img src="{{this.image}}" alt="Photo: Tim Krofecheck"/>',
+	    				'<img src="{{this.image}}?v=' + myApp.updated + '" alt="Photo: Tim Krofecheck"/>',
 	    			'</div>',
 	    			'<span>{{{this.text}}}</span>',
 	    			'</div>',
@@ -36,7 +33,6 @@ myApp.About = (function() {
 	        myApp.Tools.setupListener(self, 'dataReady', function(passedValue) {
 				if (passedValue === true) {
 					//console.log('portfolio data ready');
-					myApp.updated = self.data.updated.time;
 					self.render();
 				}
 			});
@@ -54,7 +50,6 @@ myApp.About = (function() {
                     $.each(myApp.data, function() {
                         if ('about' in this) { // do not XHR if data attached to object
                             self.data = $.extend(true, self.data, this.about);
-                            myApp.updated = self.data.updated.time;
                             callSelf = false;
                             return true;
                         }
@@ -67,6 +62,8 @@ myApp.About = (function() {
                     self.render();
                 }
             })();
+
+            self.ready = true;
 
             return self;
 		},

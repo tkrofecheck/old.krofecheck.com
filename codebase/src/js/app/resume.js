@@ -1,6 +1,3 @@
-var myApp;
-if (!myApp) { myApp = {}; }
-
 myApp.Resume = (function() {
 	return {
 		el: '#resume-container',
@@ -53,6 +50,10 @@ myApp.Resume = (function() {
                     self.render();
                 }
             })();
+
+            self.ready = true;
+
+            return self;
 		},
 
 		bindEvents: function() {

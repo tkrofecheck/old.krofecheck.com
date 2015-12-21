@@ -12,9 +12,9 @@ module.exports = function (grunt) {
 		grunt.log.ok('grunt js		build js');
 	});
 	// Build all
-	grunt.registerTask('build', ['clean','copy:html','copy:json','sass','copy:css','copy:fonts','copy:appjs','copy:libjs','imagemin','copy:images','minjson','cssmin','jshint','concat:js','uglify']);
+	grunt.registerTask('build', ['clean','copy:html','copy:json','sass','copy:fonts','copy:appjs','copy:libjs','imagemin','copy:images','minjson','cssmin','jshint','concat:js','uglify']);
 	// Build CSS
-	grunt.registerTask('css', ['clean','sass','copy:css','cssmin']);
+	grunt.registerTask('css', ['clean','sass','cssmin']);
 	// Build JS
 	grunt.registerTask('js', ['clean','copy:appjs','copy:libjs','copy:json','jshint','concat:js','uglify']);
 
@@ -72,12 +72,6 @@ module.exports = function (grunt) {
 					src: '*.html',
 					dest: '<%= dirDist %>/'
 				}]
-			},
-			css: {
-				expand: true,
-				cwd: '<%= dirSrc %>/<%= dirCssPath %>/',
-				src: 'icons.css',
-				dest: '<%= dirBuild %>/<%= dirCssPath %>/'
 			},
 			fonts: {
 				files: [{

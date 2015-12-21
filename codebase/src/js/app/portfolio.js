@@ -1,6 +1,3 @@
-var myApp;
-if (!myApp) { myApp = {}; }
-
 myApp.Portfolio = (function() {
 	return {
 	    el: '#portfolio-container',
@@ -80,6 +77,10 @@ myApp.Portfolio = (function() {
                     self.render();
                 }
             })();
+
+            self.ready = true;
+
+            return self;
 	    },
 
 		unbindEvents: function() {

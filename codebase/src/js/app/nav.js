@@ -1,6 +1,3 @@
-var myApp;
-if (!myApp) { myApp = {}; }
-
 myApp.Nav = (function() {
     return {
         el: '#nav-container',
@@ -92,29 +89,33 @@ myApp.Nav = (function() {
                 e.stopPropagation();
 
                 if ($navLink.hasClass('about-lnk')) {
-                    $body
-                        .addClass('about-active')
-                        .removeClass('resume-active')
-                        .removeClass('portfolio-active');
+                    if (!$body.hasClass('about-active') && myApp.About.ready) {
+                        $body
+                            .addClass('about-active')
+                            .removeClass('resume-active')
+                            .removeClass('portfolio-active');
 
-                    $about.show();
-                    $resume.hide();
-                    $portfolio.hide();
+                        $about.show();
+                        $resume.hide();
+                        $portfolio.hide();
+                    }
                 }
 
                 if ($navLink.hasClass('resume-lnk')) {
-                    $body
-                        .addClass('resume-active')
-                        .removeClass('about-active')
-                        .removeClass('portfolio-active');
+                    if (!$body.hasClass('resume-active') && myApp.Resume.ready) {
+                        $body
+                            .addClass('resume-active')
+                            .removeClass('about-active')
+                            .removeClass('portfolio-active');
 
-                    $about.hide();
-                    $resume.show();
-                    $portfolio.hide();
+                        $about.hide();
+                        $resume.show();
+                        $portfolio.hide();
+                    }
                 }
 
                 if ($navLink.hasClass('portfolio-lnk')) {
-                    if (!$body.hasClass('portfolio-active')) { // currently viewing portfolio - don't redraw
+                    if (!$body.hasClass('portfolio-active') && myApp.Portfolio.ready) { // currently viewing portfolio - don't redraw
                         $body
                             .addClass('portfolio-active')
                             .removeClass('about-active')
