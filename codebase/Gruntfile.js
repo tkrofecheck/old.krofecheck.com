@@ -12,7 +12,7 @@ module.exports = function(grunt) {
         grunt.log.ok('grunt js		build js');
     });
     // Build all
-    grunt.registerTask('build', ['clean', 'manifest', 'copy:manifest', 'copy:html', 'copy:json', 'sass', 'copy:fonts', 'copy:appjs', 'copy:libjs', 'imagemin', 'copy:images', 'minjson', 'cssmin', 'jshint', 'concat:js', 'uglify']);
+    grunt.registerTask('build', ['clean', 'copy:html', 'copy:json', 'sass', 'copy:fonts', 'copy:appjs', 'copy:libjs', 'imagemin', 'copy:images', 'minjson', 'cssmin', 'jshint', 'concat:js', 'uglify', 'manifest', 'copy:manifest', ]);
     // Build CSS
     grunt.registerTask('css', ['clean', 'sass', 'cssmin']);
     // Build JS
@@ -66,29 +66,30 @@ module.exports = function(grunt) {
         manifest: {
             generate: {
                 options: {
-          			basePath: '/',
-          			timestamp: false,
-          			hash: true
-        		},
-        		dest: '<%= dirBuild %>/manifest.appcache',
+                    basePath: '<%= dirBuild %>/',
+                    timestamp: true,
+                    hash: true
+                },
+                dest: 'manifest.appcache',
                 src: [
-                	'<%= dirJsPath %>/*.js',
-                	'<%= dirCssPath %>/*.css',
-                	'<%= dirImgPath %>/*.jpg',
-                	'<%= dirImgPath %>/portfolio/*.jpg',
-                	'<%= dirImgPath %>/portfolio/adcounts/*.jpg',
-                	'<%= dirImgPath %>/portfolio/microsites/*.jpg',
-                	'<%= dirImgPath %>/portfolio/newsletter/*.jpg',
-                	'<%= dirImgPath %>/portfolio/newyorkpost/*.jpg',
-                	'<%= dirImgPath %>/portfolio/nyp-email/*.jpg',
-                	'<%= dirImgPath %>/portfolio/personal-wedding/*.jpg',
-                	'<%= dirImgPath %>/portfolio/timeinc-email/*.jpg',
-                	'<%= dirImgPath %>/portfolio/timeinc-ipad/*.jpg',
-                	'<%= dirImgPath %>/portfolio/timeinc-iphone/*.jpg',
-                	'<%= dirImgPath %>/portfolio/timeinc-kindle/*.jpg',
-                	'<%= dirImgPath %>/portfolio/timeinc-misc/*.jpg',
-                	'<%= dirImgPath %>/portfolio/timeinc-tfkclassroom/*.jpg',
-                	'<%= dirImgPath %>/portfolio/wyndham/*.jpg'
+                	'index.html',
+                    '<%= dirJsPath %>/*.js',
+                    '<%= dirCssPath %>/*.css',
+                    '<%= dirImgPath %>/*.jpg',
+                    '<%= dirImgPath %>/portfolio/*.jpg',
+                    '<%= dirImgPath %>/portfolio/adcounts/*.jpg',
+                    '<%= dirImgPath %>/portfolio/microsites/*.jpg',
+                    '<%= dirImgPath %>/portfolio/newsletter/*.jpg',
+                    '<%= dirImgPath %>/portfolio/newyorkpost/*.jpg',
+                    '<%= dirImgPath %>/portfolio/nyp-email/*.jpg',
+                    '<%= dirImgPath %>/portfolio/personal-wedding/*.jpg',
+                    '<%= dirImgPath %>/portfolio/timeinc-email/*.jpg',
+                    '<%= dirImgPath %>/portfolio/timeinc-ipad/*.jpg',
+                    '<%= dirImgPath %>/portfolio/timeinc-iphone/*.jpg',
+                    '<%= dirImgPath %>/portfolio/timeinc-kindle/*.jpg',
+                    '<%= dirImgPath %>/portfolio/timeinc-misc/*.jpg',
+                    '<%= dirImgPath %>/portfolio/timeinc-tfkclassroom/*.jpg',
+                    '<%= dirImgPath %>/portfolio/wyndham/*.jpg'
                 ],
                 timestamp: true,
                 hash: true,
@@ -96,7 +97,6 @@ module.exports = function(grunt) {
                 process: function(path) {
                     return path.substring('<%= dirBuild %>/'.length);
                 },
-                
             }
         },
         copy: {
