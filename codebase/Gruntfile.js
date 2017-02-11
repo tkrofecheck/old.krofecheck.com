@@ -12,7 +12,7 @@ module.exports = function (grunt) {
 		grunt.log.ok('grunt js		build js');
 	});
 	// Build all
-	grunt.registerTask('build', ['clean','copy:manifest','copy:html','copy:json','sass','copy:fonts','copy:appjs','copy:libjs','imagemin','copy:images','minjson','cssmin','jshint','concat:js','uglify']);
+	grunt.registerTask('build', ['clean','copy:html','copy:json','sass','copy:fonts','copy:appjs','copy:libjs','imagemin','copy:images','minjson','cssmin','jshint','concat:js','uglify']);
 	// Build CSS
 	grunt.registerTask('css', ['clean','sass','cssmin']);
 	// Build JS
@@ -44,7 +44,7 @@ module.exports = function (grunt) {
 					expand: true,
 					cwd: '<%= dirSrc %>/scss',
 					src: ['*.scss'],
-					dest: '<%= dirBuild %>/<%= dirCssPath %>',
+					dest: '<%= dirBuild %>/<%= dirCssPath %>/',
 					ext: '.css'
 				}]
 			}
@@ -53,26 +53,16 @@ module.exports = function (grunt) {
 			dynamic: {                         		// Another target
 				files: [{
 					expand: true,                  	// Enable dynamic expansion
-					cwd: '<%= dirSrc %>/<%= dirImgPath %>',              // Src matches are relative to this path
+					cwd: 'src/images',              // Src matches are relative to this path
 					src: [
 						'*.{png,jpg,gif}',
 						'**/*.{png,jpg,gif}',
 						'**/**/*.{png,jpg,gif}'],   // Actual patterns to match
-					dest: '<%= dirBuild %>/<%= dirImgPath %>'            // Destination path prefix
+					dest: 'build/images'            // Destination path prefix
 				}]
 			}
 		},
 		copy: {
-			manifest: {
-				files: [{
-					src: '*.appcache',
-					dest: '<%= dirBuild %>/'
-				},
-				{
-					src: '*.appcache',
-					dest: '<%= dirDist %>/'
-				}]
-			},
 			html: {
 				files: [{
 					src: '*.html',
