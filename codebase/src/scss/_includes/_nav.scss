@@ -28,19 +28,26 @@
 
 		    &.social {
 		    	width: 25%;
+
+		    	a {
+		    		width: 50%;
+		    	}
 		    }
 		    &.site {
 		    	width: 75%;
+
+		    	a {
+		    		width: 33.3%;
+		    	}
 		    }
 		}
 
 		a {
 			position: relative;
-		    display: -webkit-flex;
+		    display: table-cell;
 		    font-family: Avenir, Arial, sans-serif;
 		    font-size: 1.5em;
 		    color: #ffffff;
-		    width: 33.3%;
 		    text-decoration: none;
 		    cursor: pointer;
 		    float: left;
