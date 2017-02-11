@@ -19,7 +19,7 @@
 			"class": "about-lnk"
 		},
 		{
-			"display": false,
+			"display": true,
 			"text": "Resume",
 			"class": "resume-lnk"
 		},

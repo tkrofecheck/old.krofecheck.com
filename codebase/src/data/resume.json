@@ -1,21 +1,51 @@
 {"resume" : {
   "sections": [
     {
-      "display": "true",
+      "display": true,
       "name": "Summary",
       "text": "Over 10 years of progressive, comprehensive experience as an innovative web developing professional. A distinguished worker acknowledged for positive rapport among co-workers and clients. Detail oriented, with a proven ability to successfully contribute to company objectives. Well balanced workload of projects and tight deadlines in a fast paced environment. Aspiring to enhance skill set from cutting-edge technologies utilizing HTML5, CSS3, and JavaScript."
     },
     {
-      "display": "true",
+      "display": true,
       "name": "Professional Experience",
-      "job": [
+      "jobs": [
+        {
+          "company": "WebMD",
+          "city": "New York, NY",
+          "role": {
+            "name": "Senior Web Developer / Sponsorship + Revenue",
+            "duration": "2015 - Present",
+            "items": [
+              "Automated deployment builds with the use of Grunt and Node Package Manager (NPM). ",
+              "Optimized video player code by reducing AMD module to make 1 HTTP request through requireJS optimization inside grunt build. ",
+              "Implemented XSLT for transforming bulky XML from Documentum into HTML, JavaScript, Handlebars templates and other front-end formats. ",
+              "Integrated various AMD modules for use within an editorial CMS. ",
+              "Primary developer for revenue and sponsorship video player (Akamai AMP Premier v63) used across WebMD website. ",
+              "Built a fully responsive framework, reducing program setup time by 40%, thus removing the need for a separate mobile-process. ",
+              "Technical documentation provided for implementing modules within PageBuilder CMS for editorial team. ",
+              "Provide support to teams outside of IT which include publishing, product owners, PPM, Ad Ops, and Beacon (Omniture team). "
+            ]
+          }
+        },
+        {
+          "company": "Time Inc.",
+          "city": "New York, NY",
+          "role": {
+            "name": "Consulting Engineer / Consumer Marketing + Revenue",
+            "duration": "June 2015 - Aug 2015",
+            "items": [
+              "Knowledge transfer of codebase, documentation and environment setup to off-shore team. ",
+              "Fixed merge conflicts in Git Repository by off-shore, post hand-off. "
+            ]
+          }
+        },
         {
           "company": "Time Inc.",
           "city": "New York, NY",
           "role": {
             "name": "Front-End Developer / Consumer Marketing + Revenue",
             "duration": "2012 - Present",
-            "item": [
+            "items": [
               "Coordinated with QA testers for end-to-end unit testing and post-production testing. ",
               "Supervised the work of 2 other front-end developers. ",
               "Updated, modified and expanded existing iOS web applications. ",
@@ -39,7 +69,7 @@
           "role": {
             "name": "Web Developer / Online Production",
             "duration": "2010 - 2012",
-            "item": [
+            "items": [
               "Planned and executed changes to both iPhone and Android mobile applications. ",
               "Troubleshooted and resolved web application issues escalated from customer support and other departments with a 100% success rate. ",
               "Built internal web tools for ad placement within mobile applications. ",
@@ -57,7 +87,7 @@
           "role": {
             "name": "Content Specialist Lead / Solutions Developer",
             "duration": "2005 - 2010",
-            "item": [
+            "items": [
               "Designed dynamic microsites for start-up clients and multi-national corporations. ",
               "Produced engaging email marketing campaigns with user segmentation and personalization. ",
               "Accomplished in optimizing graphics and web-safe colors for fast download time. ",
@@ -75,7 +105,7 @@
           "role": {
             "name": "Service Desk Support Professional",
             "duration": "2004 - 2005",
-            "item": [
+            "items": [
               "Demonstrated effective and consistent technical support. ",
               "Implemented procedures which provided the tools to automate a testing process. ",
               "Performed troubleshooting of computer systems and related equipment. "
@@ -88,13 +118,13 @@
           "role": {
             "name": "Desktop Support Team (Internship)",
             "duration": "2004",
-            "item": "Provided base level technical support to faculty, staff, and students. "
+            "items": "Provided base level technical support to faculty, staff, and students. "
           }
         }
       ]
     },
     {
-      "display": "true",
+      "display": true,
       "name": "Education",
       "college": {
         "name": "Morrisville State College",
@@ -113,12 +143,13 @@
       }
     },
     {
-      "display": "true",
+      "display": true,
       "name": "Skills",
       "type": {
         "name": " ",
-        "skill": [
+        "skills": [
           "Adobe DPS APIs (JavaScript SDKs)",
+          "Akamai AMP Premier",
           "Ajax",
           "Backbone.js",
           "Charles",
@@ -135,24 +166,27 @@
           "jQuery",
           "Methode (CMS)",
           "MySQL",
+          "Omniture",
           "Oracle SQL",
           "Perl",
           "Photoshop",
           "PHP5",
           "PostgreSQL",
+          "RequireJS",
           "SASS",
           "SailThru (ESP)",
           "SiteCatalyst",
           "Underscore.js",
           "VBScript",
-          "XML"
+          "XML",
+          "XSLT"
         ]
       }
     },
     {
-      "display": "false",
+      "display": false,
       "name": "Additional Information",
-      "job": [
+      "jobs": [
         {
           "name": "Github",
           "duration": " ",
@@ -166,7 +200,7 @@
       ]
     },
     {
-      "display": "false",
+      "display": false,
       "name": "Resume",
       "name": "Download Hardcopy Resume",
       "url": "https://www.dropbox.com/s/cthp6aa4uso0nes/TimKrofecheck_Resume.docx"

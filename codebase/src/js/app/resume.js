@@ -9,7 +9,49 @@ myApp.Resume = (function() {
 		HandlebarsTemplate: {
 			attr : { 'id': 'resume-template', 'type': 'text/x-handlebars-template' },
 			html: ''.concat(
-				'<div></div>'
+	            '{{#each sections}}',
+	            '{{#if this.display}}',
+	            '<section class="main">',
+	            '{{#if this.name}}',
+	            	'<h3 class="name">{{this.name}}</h3>',
+	            '{{/if}}',
+	            '{{#if this.text}}',
+	            	'<section class="text">{{this.text}}</section>',
+	            '{{/if}}',
+	            '{{#if this.jobs}}',
+	            	'<section class="jobs">',
+	            	'{{#each this.jobs}}',
+		            	'<section class="job">',
+		            	'{{#if this.company}}',
+		            		'<section class="company">{{this.company}}</section>',
+		            	'{{/if}}',
+		            	'{{#if this.city}}',
+		            		'<section class="city">{{this.city}}</section>',
+		            	'{{/if}}',
+		            	'{{#if this.role}}',
+		            		'<section class="role">',
+		            		'{{#if this.role.name}}',
+		            			'<div class="name">{{this.role.name}}</div>',
+		            		'{{/if}}',
+		            		'{{#if this.role.duration}}',
+		            			'<div class="duration">{{this.role.duration}}</div>',
+		            		'{{/if}}',
+		            		'{{#if this.role.items}}',
+		            			'<ul class="items">',
+		            			'{{#each this.role.items}}',
+		            				'<li>{{this}}</li>',
+		        				'{{/each}}',
+		            			'</ul>',
+		            		'{{/if}}',
+		        			'</section>',//role
+		        		'{{/if}}',
+		        		'</section>',//job
+	        		'{{/each}}',
+	        		'</section>',//jobs
+	        	'{{/if}}',
+	            '</section>',//main
+	            '{{/if}}',
+	            '{{/each}}'
 			)
 		},
 

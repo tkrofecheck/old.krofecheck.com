@@ -12,7 +12,7 @@ module.exports = function(grunt) {
         grunt.log.ok('grunt js		build js');
     });
     // Build all
-    grunt.registerTask('build', ['clean', 'copy:html', 'copy:json', 'sass', 'copy:fonts', 'copy:appjs', 'copy:libjs', 'imagemin', 'copy:images', 'minjson', 'cssmin', 'jshint', 'concat:js', 'uglify', 'manifest', 'copy:manifest', ]);
+    grunt.registerTask('build', ['clean', 'copy:html', 'copy:json', 'minjson', 'sass', 'copy:fonts', 'copy:appjs', 'copy:libjs', 'imagemin', 'copy:images', 'cssmin', 'jshint', 'concat:js', 'uglify', 'manifest', 'copy:manifest', ]);
     // Build CSS
     grunt.registerTask('css', ['clean', 'sass', 'cssmin']);
     // Build JS
@@ -74,6 +74,8 @@ module.exports = function(grunt) {
                 src: [
                 	'index.html',
                     '<%= dirJsPath %>/*.js',
+                    '<%= dirJsPath %>/app/*.js',
+                    '<%= dirJsPath %>/lib/*.js',
                     '<%= dirCssPath %>/*.css',
                     '<%= dirImgPath %>/*.jpg',
                     '<%= dirImgPath %>/portfolio/*.jpg',
@@ -90,6 +92,9 @@ module.exports = function(grunt) {
                     '<%= dirImgPath %>/portfolio/timeinc-misc/*.jpg',
                     '<%= dirImgPath %>/portfolio/timeinc-tfkclassroom/*.jpg',
                     '<%= dirImgPath %>/portfolio/wyndham/*.jpg'
+                ],
+                exclude: [
+                    '<%= dirJsPath %>/lib/*.js'
                 ],
                 timestamp: true,
                 hash: true,
