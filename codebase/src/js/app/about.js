@@ -11,15 +11,20 @@ myApp.About = (function() {
 			html: ''.concat(
 				'{{#each paragraphs}}',
 	            '{{#if this.display}}',
-	    			'<div class="bio">',
-	    			'<h4>{{this.name}}</h4>',
+	    			'<section class="bio">',
+	    			'{{#if this.name}}',
+	    				'<section class="name">{{this.name}}</section>',
+	    			'{{/if}}',
 	    			'{{#if this.image}}',
 	    			'<div class="image-wrap">',
 	    				'<img src="{{this.image}}?v=' + myApp.updated + '" alt="Photo: Tim Krofecheck"/>',
+	    				'<h1>{{{this.person}}}</h1>',
 	    			'</div>',
 	    			'{{/if}}',
-	    			'<span>{{{this.text}}}</span>',
-	    			'</div>',
+	    			'{{#if this.text}}',
+	    				'<span>{{{this.text}}}</span>',
+	    			'{{/if}}',
+	    			'</section>',//bio
 	            '{{/if}}',
 	            '{{/each}}'
 			)
