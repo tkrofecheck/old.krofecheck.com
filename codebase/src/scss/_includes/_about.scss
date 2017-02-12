@@ -70,7 +70,7 @@
 
 @media only screen and (min-width: 320px) and (max-width: 444px) {
 	#about-container {
-		div.bio {
+		section.bio {
 			padding: 10px;
 
 			span {
@@ -89,7 +89,7 @@
 
 @media only screen and (min-width: 768px) {
 	#about-container {
-		div.bio {
+		section.bio {
 			.image-wrap img {
 				width: 300px;
 			}
