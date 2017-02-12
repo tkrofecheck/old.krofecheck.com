@@ -110,32 +110,32 @@ myApp.Tools = (function() {
             },
 
             init: function(config) {
-                var self = this;
+                var _this = this;
 
                 if ($('.modal').length) {
                     console.log('Modal on screen. Only one modal permitted at a time.');
                     return false;
                 }
 
-                self.config = config;
+                _this.config = config;
 
-                self.render();
+                _this.render();
             },
 
             injectScript: function() {
-                var self = this;
+                var _this = this;
 
                 // Inject Handlebars Template into <head>
-                myApp.Tools.injectScript(self.HandlebarsTemplate);
+                myApp.Tools.injectScript(_this.HandlebarsTemplate);
             },
 
             bindEvents: function() {
-                var self = this;
+                var _this = this;
 
                 $('.modal').click(function(e) { // Tapping anywhere on modal (except popup) will remove from DOM
                    e.stopPropagation(); // stop bubble
 
-                   self.remove();
+                   _this.remove();
 
                    return true;
                 });
@@ -153,35 +153,35 @@ myApp.Tools = (function() {
                     var $btn = $(e.currentTarget),
                         btnChoice = $btn.data('choice');
 
-                    self.config.choice[btnChoice]();
+                    _this.config.choice[btnChoice]();
 
-                    self.remove();
+                    _this.remove();
 
                     return true;
                 });
             },
 
             render: function() {
-                var self = this;
+                var _this = this;
 
                 require(['handlebars'], function(Handlebars) {
                     var $hbTemplate = $('#popup-modal-template'),
                         $container = $('<div class="modal"></div>'),
                         source = $hbTemplate.html(),
                         template = Handlebars.compile(source),
-                        context = self.config || {},
+                        context = _this.config || {},
                         html = template(context);
 
                     $container.html(html);
 
                     $('body').append($container);
 
-                    self.bindEvents();
+                    _this.bindEvents();
                 });
             },
 
             remove: function() {
-                var self = this,
+                var _this = this,
                     $modal = $('.modal');
 
                 $modal.children().unbind();

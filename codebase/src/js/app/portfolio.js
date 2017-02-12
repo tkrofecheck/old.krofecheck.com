@@ -41,20 +41,20 @@ myApp.Portfolio = (function() {
 	    },
 
 	    init: function() {
-	        var self = this,
+	        var _this = this,
 	        	callSelf = false;
 
 	        // Setup Object Listener data is ready - similar to Object.watch()
-	        myApp.Tools.setupListener(self, 'dataReady', function(passedValue) {
+	        myApp.Tools.setupListener(_this, 'dataReady', function(passedValue) {
 				if (passedValue === true) {
 					//console.log('portfolio data ready');
-					self.render();
+					_this.render();
 				}
 			});
 
 	        // Inject Handlebars Template into <head>
-            if (!$('#' + self.HandlebarsTemplate.attr.id).length) {
-                myApp.Tools.injectScript(self.HandlebarsTemplate);
+            if (!$('#' + _this.HandlebarsTemplate.attr.id).length) {
+                myApp.Tools.injectScript(_this.HandlebarsTemplate);
             }
 
 			(function() {
@@ -64,7 +64,7 @@ myApp.Portfolio = (function() {
                     // look for key in data
                     $.each(myApp.data, function() {
                         if ('portfolio' in this) { // do not XHR if data attached to object
-                            self.data = $.extend(true, self.data, this.portfolio);
+                            _this.data = $.extend(true, _this.data, this.portfolio);
                             callSelf = false;
                             return true;
                         }
@@ -72,58 +72,58 @@ myApp.Portfolio = (function() {
                 }
 
                 if (callSelf) {
-                    myApp.Tools.getData(self);
+                    myApp.Tools.getData(_this);
                 } else {
-                    self.render();
+                    _this.render();
                 }
             })();
 
-            self.ready = true;
+            _this.ready = true;
 
-            return self;
+            return _this;
 	    },
 
 		unbindEvents: function() {
-	    	var self = this;
+	    	var _this = this;
 
-	    	self.$grid.unbind();
-	    	$(self.el).unbind();
+	    	_this.$grid.unbind();
+	    	$(_this.el).unbind();
 	    	$(window).unbind();
 
 	    	return false;
 	    },
 
 	    bindEvents: function() {
-	    	var self = this,
+	    	var _this = this,
 	    		$html = $('html'),
 	    		$body = $('body'),
 	    		$windowH = $(window).outerHeight();
 
-			$(self.el).bind('fixMasonry', function() {
-				self.$grid.masonry('layout');
+			$(_this.el).bind('fixMasonry', function() {
+				_this.$grid.masonry('layout');
 
-				if (!self.$grid.attr('data-orig-csstext')) {
-					self.$grid.attr('data-orig-csstext', self.$grid.attr('style'));
+				if (!_this.$grid.attr('data-orig-csstext')) {
+					_this.$grid.attr('data-orig-csstext', _this.$grid.attr('style'));
 				}
 
-				self.$grid.attr('style', self.$grid.attr('data-orig-csstext') + ' margin-bottom: ' + $('.toolbar').innerHeight() + 'px !important');
+				_this.$grid.attr('style', _this.$grid.attr('data-orig-csstext') + ' margin-bottom: ' + $('.toolbar').innerHeight() + 'px !important');
 
-				self.$grid.masonry('layout');
+				_this.$grid.masonry('layout');
 			});
 			
-			$(self.el).bind('reloadTiles', function() {
+			$(_this.el).bind('reloadTiles', function() {
 				$body.addClass('reload-tiles');
-				self.init();
+				_this.init();
 			});
 			
-			self.$grid.on('click tap', '.grid-item', function() {
+			_this.$grid.on('click tap', '.grid-item', function() {
 	        	var tile = this,
 	        		$tile = $(tile),
 	        		$tileSpan = $tile.find('span');
 
 	        	if ($body.hasClass('remove-tiles')) {
-	        		self.$grid.masonry('remove', tile);
-	        		self.$grid.masonry('layout');
+	        		_this.$grid.masonry('remove', tile);
+	        		_this.$grid.masonry('layout');
 	        	} else {
 	        		if ($html.hasClass('touch')) {
         				if ($tileSpan.hasClass('visible')) {
@@ -143,7 +143,7 @@ myApp.Portfolio = (function() {
 	        					$tileSpan.addClass('visible');
 	        				}
 
-		        			self.$grid.masonry('layout');
+		        			_this.$grid.masonry('layout');
 				        }
 				    }
 		        }
@@ -151,8 +151,8 @@ myApp.Portfolio = (function() {
 
 			$(window).bind('resizeEnd', function() {
 	            // do something, window hasn't changed size in 500ms
-	            self.$grid.masonry('reloadItems');
-	            self.$grid.masonry('layout');
+	            _this.$grid.masonry('reloadItems');
+	            _this.$grid.masonry('layout');
 	        });
 
 			$(window).on('resize orientationchange', function() {
@@ -170,11 +170,11 @@ myApp.Portfolio = (function() {
 	            }, 500);
 	        });
 
-			self.$grid.on('click tap', '.grid-item a', function(e) {
+			_this.$grid.on('click tap', '.grid-item a', function(e) {
 				e.stopPropagation(); // Prevent bubbling when tapping link inside span
 			});
 
-			$(self.el).on('click tap', 'input[name="reload-tiles"]', function(e) {
+			$(_this.el).on('click tap', 'input[name="reload-tiles"]', function(e) {
                 e.stopPropagation();
 
                 myApp.Tools.customModal.init({
@@ -186,7 +186,7 @@ myApp.Portfolio = (function() {
                     },
                     choice: {
                         yes: function() {
-                            $(self.el).trigger('reloadTiles');
+                            $(_this.el).trigger('reloadTiles');
                         },
                         no: function() {
                             return false;
@@ -195,7 +195,7 @@ myApp.Portfolio = (function() {
                 });
             });
 
-            $(self.el).on('change', 'input:checkbox[name="remove"]', function(e) {
+            $(_this.el).on('change', 'input:checkbox[name="remove"]', function(e) {
                 e.stopPropagation();
 
                 if (this.checked) {
@@ -207,7 +207,7 @@ myApp.Portfolio = (function() {
                 }
             });
 
-            $(self.el).on('change', 'input:radio[name="size"]', function(e) {
+            $(_this.el).on('change', 'input:radio[name="size"]', function(e) {
                 e.stopPropagation();
 
                 var radioBtn = this,
@@ -229,27 +229,27 @@ myApp.Portfolio = (function() {
                         }
                     });
 
-                    $(self.el).trigger('fixMasonry');
+                    $(_this.el).trigger('fixMasonry');
                 }
             });
 	    },
 
 	    render: function() {
-	        var self = this;
+	        var _this = this;
 
-	        if (typeof self.$grid !== 'undefined' && self.$grid !== null) {
-	        	self.$grid.masonry('destroy');
+	        if (typeof _this.$grid !== 'undefined' && _this.$grid !== null) {
+	        	_this.$grid.masonry('destroy');
 
-	        	self.unbindEvents();
+	        	_this.unbindEvents();
 	        }
 
 	        require(['handlebars', 'masonry'], function(Handlebars, Masonry) {
 	            var $body = $('body'),
 	            	$hbTemplate = $('#portfolio-template'),
-	                $container = $(self.el),
+	                $container = $(_this.el),
 	                source = $hbTemplate.html(),
 	                template = Handlebars.compile(source),
-	                context = self.data || {},
+	                context = _this.data || {},
 	                html = template(context);
 
 	            $container.html(html);
@@ -261,8 +261,8 @@ myApp.Portfolio = (function() {
 	            	$.bridget('masonry', Masonry);
 
 	        		// init Masonry after all images have loaded
-	        		self.$grid = $('#portfolio-projects.grid').imagesLoaded(function() {
-						self.$grid.masonry({
+	        		_this.$grid = $('#portfolio-projects.grid').imagesLoaded(function() {
+						_this.$grid.masonry({
 							isInitLayout: false,
 							itemSelector: '.grid-item',
 							columnWidth: '.tile-width',
@@ -271,18 +271,18 @@ myApp.Portfolio = (function() {
 							isOriginTop: true
 					    });
 
-					    self.$grid.masonry('layout');
+					    _this.$grid.masonry('layout');
 					});
 
 					if (!$body.hasClass('reload-tiles')) {
-						$(self.el).hide(); // hide on initial load
+						$(_this.el).hide(); // hide on initial load
 					} else {
 						$body.removeClass('reload-tiles');
 					}
 
 					$($('input:radio[name="size"]')[0]).prop('checked', true); // Pre-select 'Normal' for tiles
 
-					self.bindEvents();
+					_this.bindEvents();
 	            });
 	        });
 	    }

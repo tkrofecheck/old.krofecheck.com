@@ -29,19 +29,19 @@ myApp.Nav = (function() {
         },
 
         init: function() {
-            var self = this;
+            var _this = this;
 
             // Setup Object Listener data is ready - similar to Object.watch()
-            myApp.Tools.setupListener(self, 'dataReady', function(passedValue) {
+            myApp.Tools.setupListener(_this, 'dataReady', function(passedValue) {
                 if (passedValue === true) {
                     //console.log('portfolio data ready');
-                    self.render();
+                    _this.render();
                 }
             });
 
             // Inject Handlebars Template into <head>
-            if (!$('#' + self.HandlebarsTemplate.attr.id).length) {
-                myApp.Tools.injectScript(self.HandlebarsTemplate);
+            if (!$('#' + _this.HandlebarsTemplate.attr.id).length) {
+                myApp.Tools.injectScript(_this.HandlebarsTemplate);
             }
 
             (function() {
@@ -51,7 +51,7 @@ myApp.Nav = (function() {
                     // look for key in data
                     $.each(myApp.data, function() {
                         if ('nav' in this) { // do not XHR if data attached to object
-                            self.data = $.extend(true, self.data, this.nav);
+                            _this.data = $.extend(true, _this.data, this.nav);
                             callSelf = false;
                             return true;
                         }
@@ -59,31 +59,31 @@ myApp.Nav = (function() {
                 }
 
                 if (callSelf) {
-                    myApp.Tools.getData(self);
+                    myApp.Tools.getData(_this);
                 } else {
-                    self.render();
+                    _this.render();
                 }
             })();
 
-            return self;
+            return _this;
         },
 
         unbindEvents: function() {
-            var self = this;
+            var _this = this;
 
-            $(self.el).unbind('click tap', 'a');
+            $(_this.el).unbind('click tap', 'a');
         },
 
         bindEvents: function() {
-            var self = this,
+            var _this = this,
             	$body = $('body'),
             	$about = $(myApp.About.el),
             	$resume = $(myApp.Resume.el),
             	$portfolio = $(myApp.Portfolio.el);
 
-            self.unbindEvents();
+            _this.unbindEvents();
 
-            $(self.el).find('a').on('click tap', function(e) {
+            $(_this.el).find('a').on('click tap', function(e) {
                 var $navLink = $(e.currentTarget);
 
                 e.stopPropagation();
@@ -131,19 +131,19 @@ myApp.Nav = (function() {
         },
 
         render: function() {
-            var self = this;
+            var _this = this;
 
             require(['handlebars'], function(Handlebars) {
                 var $hbTemplate = $('#nav-template'),
-                    $container = $(self.el),
+                    $container = $(_this.el),
                     source = $hbTemplate.html(),
                     template = Handlebars.compile(source),
-                    context = self.data || {},
+                    context = _this.data || {},
                     html = template(context);
 
                 $container.html(html);
 
-                self.bindEvents();
+                _this.bindEvents();
 
                 $(window).trigger('navComplete');
             });

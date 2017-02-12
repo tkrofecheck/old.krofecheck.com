@@ -13,9 +13,11 @@ myApp.About = (function() {
 	            '{{#if this.display}}',
 	    			'<div class="bio">',
 	    			'<h4>{{this.name}}</h4>',
+	    			'{{#if this.image}}',
 	    			'<div class="image-wrap">',
 	    				'<img src="{{this.image}}?v=' + myApp.updated + '" alt="Photo: Tim Krofecheck"/>',
 	    			'</div>',
+	    			'{{/if}}',
 	    			'<span>{{{this.text}}}</span>',
 	    			'</div>',
 	            '{{/if}}',
@@ -24,22 +26,22 @@ myApp.About = (function() {
 		},
 
 		init: function() {
-			var self = this,
+			var _this = this,
 				callSelf = false;
 
-			$(self.el).position().top = $('nav').innerHeight() + 'px';
+			$(_this.el).position().top = $('nav').innerHeight() + 'px';
 
 			// Setup Object Listener data is ready - similar to Object.watch()
-	        myApp.Tools.setupListener(self, 'dataReady', function(passedValue) {
+	        myApp.Tools.setupListener(_this, 'dataReady', function(passedValue) {
 				if (passedValue === true) {
 					//console.log('portfolio data ready');
-					self.render();
+					_this.render();
 				}
 			});
 
 			// Inject Handlebars Template into <head>
-            if (!$('#' + self.HandlebarsTemplate.attr.id).length) {
-                myApp.Tools.injectScript(self.HandlebarsTemplate);
+            if (!$('#' + _this.HandlebarsTemplate.attr.id).length) {
+                myApp.Tools.injectScript(_this.HandlebarsTemplate);
             }
 
             (function() {
@@ -49,7 +51,7 @@ myApp.About = (function() {
                     // look for key in data
                     $.each(myApp.data, function() {
                         if ('about' in this) { // do not XHR if data attached to object
-                            self.data = $.extend(true, self.data, this.about);
+                            _this.data = $.extend(true, _this.data, this.about);
                             callSelf = false;
                             return true;
                         }
@@ -57,15 +59,15 @@ myApp.About = (function() {
                 }
 
                 if (callSelf) {
-                    myApp.Tools.getData(self);
+                    myApp.Tools.getData(_this);
                 } else {
-                    self.render();
+                    _this.render();
                 }
             })();
 
-            self.ready = true;
+            _this.ready = true;
 
-            return self;
+            return _this;
 		},
 
 		bindEvents: function() {
@@ -73,22 +75,22 @@ myApp.About = (function() {
 		},
 
 		render: function() {
-			var self = this;
+			var _this = this;
 
 			require(['handlebars', 'masonry'], function(Handlebars, Masonry) {
 				var $hbTemplate = $('#about-template'),
-					$container = $(self.el),
+					$container = $(_this.el),
 					source = $hbTemplate.html(),
 					template = Handlebars.compile(source),
-					context = self.data || {},
+					context = _this.data || {},
 					html = template(context);
 
 				$container.html(html);
 
-				$('.copyright').html(self.data.copyright);
+				$('.copyright').html(_this.data.copyright);
 			});
 
-			self.bindEvents();
+			_this.bindEvents();
 		}
 	};
 })();

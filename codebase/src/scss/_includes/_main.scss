@@ -3,13 +3,15 @@ body {
 	width: 100%;
 	height: 100%;
 	overflow-x: hidden;
+	font-family: 'Avenir', Arial, sans-serif;
+	word-spacing: 0.15em;
 
 	&.about-active {
-		background: none;
+		background-color: #def;
 	}
 
 	&.resume-active {
-		background: none;
+		background-color: #def;
 	}
 
 	&.portfolio-active {

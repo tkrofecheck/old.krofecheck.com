@@ -1,7 +1,7 @@
 //Load Web App JavaScript Dependencies/Plugins
 define(['jquery', 'underscore', 'handlebars', 'masonry', 'tools'],
     function($, _, Handlebars, Masonry) {
-        var self = this;
+        var _this = this;
 
         console.log('required plugins loaded...');
 
@@ -43,9 +43,9 @@ define(['jquery', 'underscore', 'handlebars', 'masonry', 'tools'],
         // as an argument, and the collection as `this`
 
         $.fn.imagesLoaded = function(callback) {
-            var elems = this.find('img'),
+            var _this = this,
+                elems = _this.find('img'),
                 elems_src = [],
-                self = this,
                 len = elems.length;
 
             if (!elems.length) {
@@ -59,7 +59,7 @@ define(['jquery', 'underscore', 'handlebars', 'masonry', 'tools'],
                     len = elems.length;
                     elems.one('load error', function() {
                         if (--len === 0) {
-                            callback.call(self);
+                            callback.call(_this);
                         }
                     }).each(function(index) {
                         $(this).load(function() {

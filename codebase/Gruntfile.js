@@ -66,17 +66,18 @@ module.exports = function(grunt) {
         manifest: {
             generate: {
                 options: {
-                    basePath: '<%= dirBuild %>/',
+                    basePath: '<%= dirDist %>/',
                     timestamp: true,
                     hash: true
                 },
                 dest: 'manifest.appcache',
                 src: [
                 	'index.html',
+                    '<%= dirDataPath %>/*.json',
+                    '<%= dirCssPath %>/*.css',
                     '<%= dirJsPath %>/*.js',
                     '<%= dirJsPath %>/app/*.js',
                     '<%= dirJsPath %>/lib/*.js',
-                    '<%= dirCssPath %>/*.css',
                     '<%= dirImgPath %>/*.jpg',
                     '<%= dirImgPath %>/portfolio/*.jpg',
                     '<%= dirImgPath %>/portfolio/adcounts/*.jpg',

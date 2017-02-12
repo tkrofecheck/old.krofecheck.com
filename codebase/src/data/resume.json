@@ -3,7 +3,7 @@
     {
       "display": true,
       "name": "Summary",
-      "text": "Over 10 years of progressive, comprehensive experience as an innovative web developing professional. A distinguished worker acknowledged for positive rapport among co-workers and clients. Detail oriented, with a proven ability to successfully contribute to company objectives. Well balanced workload of projects and tight deadlines in a fast paced environment. Aspiring to enhance skill set from cutting-edge technologies utilizing HTML5, CSS3, and JavaScript."
+      "text": "Over 13 years of progressive, comprehensive experience as an innovative web developing professional. A distinguished worker acknowledged for positive rapport among co-workers and clients. Detail oriented, with a proven ability to successfully contribute to company objectives. Well balanced workload of projects and tight deadlines in a fast paced environment. Aspiring to enhance skill set from cutting-edge technologies utilizing HTML5, CSS3, and JavaScript."
     },
     {
       "display": true,
@@ -129,7 +129,7 @@
       "college": {
         "name": "Morrisville State College",
         "city": "Morrisville, NY",
-        "degree": [
+        "degrees": [
           {
             "type": "B.Tech, Information Technology",
             "focus": "Web Development",
@@ -143,7 +143,7 @@
       }
     },
     {
-      "display": true,
+      "display": false,
       "name": "Skills",
       "type": {
         "name": " ",
@@ -202,7 +202,7 @@
     {
       "display": false,
       "name": "Resume",
-      "name": "Download Hardcopy Resume",
+      "title": "Download Hardcopy Resume",
       "url": "https://www.dropbox.com/s/cthp6aa4uso0nes/TimKrofecheck_Resume.docx"
     }
   ]

@@ -49,6 +49,31 @@ myApp.Resume = (function() {
 	        		'{{/each}}',
 	        		'</section>',//jobs
 	        	'{{/if}}',
+	        	'{{#if this.college}}',
+	        		'<section class="college">',
+	        		'{{#if this.college.name}}',
+	        			'<section class="name">{{this.college.name}}</section>',
+	        		'{{/if}}',
+	        		'{{#if this.college.city}}',
+	        			'<section class="city">{{this.college.city}}</section>',
+	        		'{{/if}}',
+	        		'{{#if this.college.degrees}}',
+	        		'{{#each this.college.degrees}}',
+	        			'<section class="degree">',
+	        			'{{#if this.type}}',
+	        				'<section class="type">{{this.type}}</section>',
+	        			'{{/if}}',
+	        			'{{#if this.focus}}',
+	        				'<section class="focus">{{this.focus}}</section>',
+	        			'{{/if}}',
+	        			'{{#if this.year}}',
+	        				'<section class="year">{{this.year}}</section>',
+	        			'{{/if}}',
+	        			'</section>',//degree
+	        		'{{/each}}',
+	        		'{{/if}}',
+	        		'</section>',//college
+	        	'{{/if}}',
 	            '</section>',//main
 	            '{{/if}}',
 	            '{{/each}}'
@@ -56,20 +81,20 @@ myApp.Resume = (function() {
 		},
 
 		init: function() {
-			var self = this,
+			var _this = this,
 				callSelf = false;
 
 			// Setup Object Listener data is ready - similar to Object.watch()
-	        myApp.Tools.setupListener(self, 'dataReady', function(passedValue) {
+	        myApp.Tools.setupListener(_this, 'dataReady', function(passedValue) {
 				if (passedValue === true) {
 					//console.log('portfolio data ready');
-					self.render();
+					_this.render();
 				}
 			});
 
 			// Inject Handlebars Template into <head>
-            if (!$('#' + self.HandlebarsTemplate.attr.id).length) {
-                myApp.Tools.injectScript(self.HandlebarsTemplate);
+            if (!$('#' + _this.HandlebarsTemplate.attr.id).length) {
+                myApp.Tools.injectScript(_this.HandlebarsTemplate);
             }
 
             (function() {
@@ -79,7 +104,7 @@ myApp.Resume = (function() {
                     // look for key in data
                     $.each(myApp.data, function() {
                         if ('resume' in this) { // do not XHR if data attached to object
-                            self.data = $.extend(true, self.data, this.resume);
+                            _this.data = $.extend(true, _this.data, this.resume);
                             callSelf = false;
                             return true;
                         }
@@ -87,15 +112,15 @@ myApp.Resume = (function() {
                 }
 
                 if (callSelf) {
-                    myApp.Tools.getData(self);
+                    myApp.Tools.getData(_this);
                 } else {
-                    self.render();
+                    _this.render();
                 }
             })();
 
-            self.ready = true;
+            _this.ready = true;
 
-            return self;
+            return _this;
 		},
 
 		bindEvents: function() {
@@ -103,20 +128,20 @@ myApp.Resume = (function() {
 		},
 
 		render: function() {
-			var self = this;
+			var _this = this;
 
 			require(['handlebars', 'masonry'], function(Handlebars, Masonry) {
 				var $hbTemplate = $('#resume-template'),
-					$container = $(self.el),
+					$container = $(_this.el),
 					source = $hbTemplate.html(),
 					template = Handlebars.compile(source),
-					context = self.data || {},
+					context = _this.data || {},
 					html = template(context);
 
 				$container.html(html);
 			});
 
-			self.bindEvents();
+			_this.bindEvents();
 		}
 	};
 })();
