@@ -12,15 +12,15 @@
 		position: absolute;
 		top: 0;
 		left: 0;
-		display: flex;
+		display: table;
 		background-color: #046;
 		width: 100%;
 		height: auto;
 		margin: 0 auto;
-		align-items: center;
 		box-shadow: 0px 2px 15px 2px gray;
 
 		div {
+			display: table-cell;
 			position: relative;
 		    vertical-align: middle;
 		    text-align: center;
@@ -151,9 +151,16 @@
     #nav-container {
 	    nav {
 	    	a {
-	    		font-size: 1em;
-    			line-height: 1.5;
     			padding: 5px 0;
+	    	}
+
+	    	.social a {
+	    		font-size: 1.2em;
+	    	}
+
+	    	.site a {
+				font-size: 1em;
+				line-height: 1.5em;
 	    	}
 	    }
 	}
