@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta http-equiv="Content-Type" content="application/xhtml+xml;charset=UTF-8"/>
+    <meta name="author" content="Tim Krofecheck"/>
+    <meta name="copyright" content="(C) 2005-2015 - krofecheck.com"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="meta-apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="description" content="Tim Krofecheck's Web Developer Portfolio"/>
+    <meta name="googlebot" content="noarchive"/>
+    <meta name="keywords" content="sr,senior,web,developer,krofecheck,webmd"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+
+    <title></title>
+
+    <link rel="stylesheet" href="css/app.css" />
+
+    <script>
+        // Check if a new cache is available on page load.
+        window.applicationCache.addEventListener('updateready', function(e) {
+            if (window.applicationCache.status == window.applicationCache.UPDATEREADY) {
+                // Browser downloaded a new app cache.
+                if (confirm('A new version of this site is available. Load it?')) {
+                    window.location.reload();
+                }
+            } else {
+                // Manifest didn't changed. Nothing new to server.
+            }
+        }, false);
+    </script>
+</head>
+
+<body class="about-active">
+    <div id="nav-container"></div>
+
+    <section id="about-container"></section>
+
+    <section id="resume-container"></section>
+
+    <section id="portfolio-container"></section>
+
+    <!-- <div class="copyright">(C) 2005-2015 - krofecheck.com</div> -->
+
+    <script data-main="scripts/app" src="scripts/lib/require.min.js"></script>
+</body>
+
+</html>

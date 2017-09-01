@@ -1,0 +1,17 @@
+{
+	"compilerOptions": {
+		"declaration": false,
+		"lib": "ES6",
+		"module": "AMD",
+		"moduleResolution": "Classic",
+		"outDir": "build/scripts",
+		"removeComments": false,
+		"sourceMap": false,
+		"target": "ES6",
+		"typeRoots": [ "node_modules/@types/" ],
+		"types": [ "jquery", "underscore", "handlebars" ]
+	},
+	"exclude": [
+		"node_modules"
+	]
+}

@@ -1,0 +1,44 @@
+{
+  "name": "new.krofecheck.com",
+  "description": "Personal Site",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tkrofecheck/new.krofecheck.com.git"
+  },
+  "version": "1.0.0",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-clean": "^1.1.0",
+    "grunt-contrib-concat": "~0.4.0",
+    "grunt-contrib-copy": "~0.8.0",
+    "grunt-contrib-cssmin": "^0.12.2",
+    "grunt-contrib-imagemin": ">=0.4.0",
+    "grunt-contrib-jshint": "~1.1.0",
+    "grunt-manifest": "^0.4.4",
+    "grunt-minjson": "~0.3.0",
+    "grunt-contrib-sass": "^0.9.2",
+    "grunt-contrib-uglify": "0.11.0",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-ts": "^5.5.1",
+    "grunt-text-replace": "~0.4.0",
+    "load-grunt-tasks": "0.4.0",
+    "typescript": "2.4.0"
+  },
+  "scripts": {
+    "start": "npm init -y && npm install && npm install -g grunt-cli && npm install @types/jquery && npm install @types/handlebars && npm install @types/underscore && grunt"
+  },
+  "main": "Gruntfile.js",
+  "dependencies": {
+    "@types/handlebars": "^4.0.36",
+    "@types/jquery": "^3.2.12",
+    "@types/underscore": "^1.8.2",
+    "package.json": "^2.0.1"
+  },
+  "keywords": [],
+  "author": "Tim Krofecheck",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tkrofecheck/new.krofecheck.com/issues"
+  },
+  "homepage": "https://github.com/tkrofecheck/new.krofecheck.com#readme"
+}

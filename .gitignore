@@ -1,3 +1,7 @@
 build
 dist
 node_modules
+codebase/v2/.tscache/
+codebase/v2/src/.DS_Store
+*.DS_Store
+codebase/v2/src/scripts/.baseDir.ts
