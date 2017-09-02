@@ -25,7 +25,7 @@
     "typescript": "2.4.0"
   },
   "scripts": {
-    "start": "npm init -y && npm install && npm install -g grunt-cli && npm install @types/jquery && npm install @types/handlebars && npm install @types/underscore && grunt"
+    "start": "npm init -y && npm install && npm install -g grunt-cli && npm install --save @types/jquery && npm install --save @types/handlebars && npm install --save @types/underscore && grunt"
   },
   "main": "Gruntfile.js",
   "dependencies": {

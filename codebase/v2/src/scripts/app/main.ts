@@ -2,9 +2,6 @@
 
 //Load Web App JavaScript Dependencies/Plugins
 import { App as myApp } from './_namespace';
-import * as $ from 'jquery';
-import * as _ from 'underscore';
-import * as Handlebars from 'handlebars';
 import { About } from './about';
 import { Portfolio } from './portfolio';
 import { Resume } from './resume';
@@ -15,19 +12,18 @@ export class Main {
 	resume: any;
 
 	constructor() {
-		this.about = new About();
-		this.portfolio = new Portfolio('test.html');
-		this.resume = new Resume();
+		var data = myApp.setup.config.data;
+			
+		this.about = new About(data.about);
+		this.portfolio = new Portfolio(data.portfolio);
+		this.resume = new Resume(data.resume);
 	}
 
 	init() {
-		console.log('main loaded', this);
+		console.log('main loaded');
 		this.about.init();
 		this.portfolio.init();
 		this.resume.init();
-		console.log('$', $);
-		console.log('_', _);
-		console.log('Handlebars', Handlebars);
 	}
 }
 

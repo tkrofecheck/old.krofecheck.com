@@ -145,12 +145,12 @@ module.exports = function(grunt) {
                     expand: true,
                     cwd: '<%= dirSrc %>/<%= dirJsPath %>/lib/',
                     src: '**',
-                    dest: '<%= dirBuild %>/<%= dirJsPath %>/lib/',
+                    dest: '<%= dirBuild %>/<%= dirJsPath %>/',
                 }, {
                     expand: true,
-                    cwd: '<%= dirBuild %>/<%= dirJsPath %>/lib/',
+                    cwd: '<%= dirBuild %>/<%= dirJsPath %>/',
                     src: '**',
-                    dest: '<%= dirDist %>/<%= dirJsPath %>/lib/',
+                    dest: '<%= dirDist %>/<%= dirJsPath %>/',
                 }]
             },
             images: {

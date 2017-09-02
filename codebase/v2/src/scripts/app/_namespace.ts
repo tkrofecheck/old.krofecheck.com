@@ -6,5 +6,5 @@ export namespace App {
 	export var config;
 	export var setup;
 	export var main;
-	export var $;
+	export var Utils;
 }

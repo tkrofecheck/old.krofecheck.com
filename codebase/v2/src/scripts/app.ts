@@ -1,17 +1,25 @@
 /* jshint esversion: 6 */
-
+declare var window: any;
 declare var requirejs: any;
 
-import { App as myApp } from './app/_namespace';
+import * as $ from "jquery";
+import * as _ from "underscore";
+import * as Handlebars from "handlebars";
+import { App as myApp } from "./app/_namespace";
 
-export interface dataFiles {
+// export for others scripts to use
+window.$ = $;
+window._ = _;
+window.Handlebars = Handlebars;
+
+interface dataFiles {
 	about: string;
 	nav: string;
 	portfolio: string;
 	resume: string;
 }
 
-export interface requireCfg {
+interface requireCfg {
 	baseUrl: string;
 	findNestedDependencies: boolean;
 	paths: {
@@ -19,7 +27,7 @@ export interface requireCfg {
 	};
 }
 
-export class Setup {
+class Setup {
 	config: Object;
 
 	constructor (data: dataFiles, requireCfg: requireCfg) {
@@ -30,10 +38,10 @@ export class Setup {
 	}
 
 	init() {
-		console.log('init()', this);
+		console.log('init()');
 		requirejs.config(this.config['require-config']);
+		console.log("myApp", myApp);
 		requirejs(['app/main']);
-		console.log('myApp', myApp);
 	}
 }
 

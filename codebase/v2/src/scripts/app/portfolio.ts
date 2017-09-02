@@ -1,9 +1,7 @@
 /* jshint esversion: 6 */
 
 import { App as myApp } from './_namespace';
-import * as $ from 'jquery';
-import * as _ from 'underscore';
-import * as Handlebars from 'handlebars';
+import { getData } from "./getData";
 
 export class Portfolio {
 	el: string;
@@ -17,20 +15,20 @@ export class Portfolio {
 	}
 
 	init() {
+		getData(this);
 		console.log('portfolio loaded...', this);
 	}
 
-	error(error: any) {
+	fail(error: any) {
 		console.log('error getting portfolio data');
 		this.data = null;
 	}
 
-	success(e, data) {
-		console.log('portfolio data', data);
-		this.data = data;
+	always(e, data) {
 	}
 
-	done(e, data) {
+	done(data: JSON) {
+    	this.data = data;
 		this.el = '#portfolio-container';
 		this.dataKey = 'portfolio';
 		this.HandlebarsTemplate = {
