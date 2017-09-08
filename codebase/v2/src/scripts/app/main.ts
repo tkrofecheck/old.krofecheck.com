@@ -12,18 +12,16 @@ export class Main {
 	resume: any;
 
 	constructor() {
-		var data = myApp.setup.config.data;
-			
-		this.about = new About(data.about);
-		this.portfolio = new Portfolio(data.portfolio);
-		this.resume = new Resume(data.resume);
+		console.log('new Main()');
+		this.about = new About();
+		this.portfolio = new Portfolio();
+		this.resume = new Resume();
 	}
 
 	init() {
-		console.log('main loaded');
-		this.about.init();
-		this.portfolio.init();
-		this.resume.init();
+		this.about.set(true);
+		this.portfolio.set(true);
+		this.resume.set(true);
 	}
 }
 

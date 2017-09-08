@@ -1,40 +1,48 @@
 /* jshint esversion: 6 */
 
 import { App as myApp } from './_namespace';
-import { getData } from "./getData";
+import { setData } from "./setData";
+import { bindEvent } from "./bindEvent";
+import { injectScript } from "./injectScript";
 
+export interface HandlebarsTemplate {
+	attr: {
+		id: string,
+		type: string
+	},
+	html: string
+}
 export class Portfolio {
-	el: string;
-	data: any;
+	data: JSON;
 	dataKey: string;
+	el: string;
+	error: any;
 	HandlebarsTemplate: any;
+	message: string;
+	updateOnDataSet: boolean;
 	url: string;
 
-	constructor(url: string) {
-		this.url = url;
-	}
-
-	init() {
-		getData(this);
-		console.log('portfolio loaded...', this);
-	}
-
-	fail(error: any) {
-		console.log('error getting portfolio data');
-		this.data = null;
-	}
-
-	always(e, data) {
-	}
-
-	done(data: JSON) {
-    	this.data = data;
+	constructor() {
+		this.url = myApp.setup.config.files.portfolio;
 		this.el = '#portfolio-container';
 		this.dataKey = 'portfolio';
-		this.HandlebarsTemplate = {
+	}
+
+	get() {
+		return this.data;
+	}
+
+	set(updateOnDataSet: boolean) {
+		this.updateOnDataSet = updateOnDataSet;
+		setData(this);
+	}
+
+	updateDOM() {
+		var _this = this;
+		var hbTemplate: HandlebarsTemplate = {
 			attr: {
-				'id': 'portfolio-template',
-				'type': 'text/x-handlebars-template'
+				id: 'portfolio-template',
+				type: 'text/x-handlebars-template'
 			},
 			html: ''.concat(
 				'<div id="portfolio-projects" class="grid">',
@@ -64,5 +72,27 @@ export class Portfolio {
 				'</div>'
 			)
 		};
+
+		if (_this.message !== 'success') {
+			return;
+		} else {
+			console.log('updateDOM: ' + _this.constructor.name);
+
+			// Inject Handlebars Template into <head>
+			injectScript(hbTemplate).done(function($hbTemplate) {
+				console.log('$hbTemplate', $hbTemplate);
+			}).then(function() {
+				_this.bindEvents();
+			});
+		}
+	}
+
+	bindEvents() {
+		var $window = $(window);
+		var windowResize = function() {
+			console.log('window resize');
+		}
+
+		bindEvent($window, 'resize', windowResize);
 	}
 }

@@ -7,11 +7,6 @@ import * as _ from "underscore";
 import * as Handlebars from "handlebars";
 import { App as myApp } from "./app/_namespace";
 
-// export for others scripts to use
-window.$ = $;
-window._ = _;
-window.Handlebars = Handlebars;
-
 interface dataFiles {
 	about: string;
 	nav: string;
@@ -27,20 +22,25 @@ interface requireCfg {
 	};
 }
 
+// export for others scripts to use
+window.$ = $;
+window._ = _;
+window.Handlebars = Handlebars;
+
 class Setup {
 	config: Object;
 
-	constructor (data: dataFiles, requireCfg: requireCfg) {
+	constructor (files: dataFiles, requireCfg: requireCfg) {
+		console.log('new Setup()');
 		this.config = {
-			data: data,
+			files: files,
 			'require-config': requireCfg
 		};
 	}
 
 	init() {
-		console.log('init()');
-		requirejs.config(this.config['require-config']);
 		console.log("myApp", myApp);
+		requirejs.config(this.config['require-config']);
 		requirejs(['app/main']);
 	}
 }

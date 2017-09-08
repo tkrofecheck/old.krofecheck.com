@@ -2,6 +2,7 @@
 
 export namespace App {
 	export const updated = new Date();
+	export var hbTemplate = { id: '' };
 
 	export var config;
 	export var setup;
