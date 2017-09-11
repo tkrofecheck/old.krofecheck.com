@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
 
 <head>
     <meta charset="utf-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<meta name="manifest" href="/manifest.json"/>
     <meta http-equiv="Content-Type" content="application/xhtml+xml;charset=UTF-8"/>
     <meta name="author" content="Tim Krofecheck"/>
     <meta name="copyright" content="(C) 2005-2015 - krofecheck.com"/>
@@ -13,9 +14,10 @@
     <meta name="description" content="Tim Krofecheck's Web Developer Portfolio"/>
     <meta name="googlebot" content="noarchive"/>
     <meta name="keywords" content="sr,senior,web,developer,krofecheck,webmd"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+	<meta name="theme-color" content="#db5945">
 
-    <title></title>
+    <title>Tim Krofecheck</title>
 
     <link rel="stylesheet" href="css/app.css" />
 
@@ -34,16 +36,25 @@
     </script>
 </head>
 
-<body class="about-active">
-    <div id="nav-container"></div>
+<body>
+    <div class="header">
+		<div class="menu">
+			<div class="item">A</div>
+			<div class="item">P</div>
+			<div class="item">R</div>
+		</div>
+	</div>
 
-    <section id="about-container"></section>
+	<!-- About Section -->
+	<div class="section"></div>
 
-    <section id="resume-container"></section>
+	<!-- Portfolio Section -->
+	<div class="section"></div>
 
-    <section id="portfolio-container"></section>
+	<!-- Resume Section -->
+	<div class="section"></div>
 
-    <!-- <div class="copyright">(C) 2005-2015 - krofecheck.com</div> -->
+    <!-- <div class="copyright">(C) 2005-2017 - krofecheck.com</div> -->
 
     <script data-main="scripts/app" src="scripts/require.js"></script>
 </body>

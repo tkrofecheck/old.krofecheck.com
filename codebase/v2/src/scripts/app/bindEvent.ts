@@ -1,4 +1,3 @@
-/* jshint esversion: 6 */
 declare var _: any;
 
 export function bindEvent(element: any, eventName: string, cb: any) {

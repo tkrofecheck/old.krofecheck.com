@@ -1,4 +1,3 @@
-/* jshint esversion: 6 */
 declare var $: any;
 
 export function injectScript(obj: any) {

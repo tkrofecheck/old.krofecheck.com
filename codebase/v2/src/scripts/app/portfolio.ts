@@ -1,5 +1,3 @@
-/* jshint esversion: 6 */
-
 import { App as myApp } from './_namespace';
 import { setData } from "./setData";
 import { bindEvent } from "./bindEvent";
@@ -19,25 +17,25 @@ export class Portfolio {
 	error: any;
 	HandlebarsTemplate: any;
 	message: string;
-	updateOnDataSet: boolean;
+	ready: boolean;
 	url: string;
 
 	constructor() {
 		this.url = myApp.setup.config.files.portfolio;
 		this.el = '#portfolio-container';
 		this.dataKey = 'portfolio';
+		this.ready = false;
 	}
 
 	get() {
 		return this.data;
 	}
 
-	set(updateOnDataSet: boolean) {
-		this.updateOnDataSet = updateOnDataSet;
+	set() {
 		setData(this);
 	}
 
-	updateDOM() {
+	prepare() {
 		var _this = this;
 		var hbTemplate: HandlebarsTemplate = {
 			attr: {
@@ -73,26 +71,43 @@ export class Portfolio {
 			)
 		};
 
-		if (_this.message !== 'success') {
-			return;
-		} else {
-			console.log('updateDOM: ' + _this.constructor.name);
+		injectScript(hbTemplate).done(function($hbTemplate) {
+			console.log('$hbTemplate', $hbTemplate);
+		}).then(function() {
+			_this.loaded();
+		});
+	}
 
-			// Inject Handlebars Template into <head>
-			injectScript(hbTemplate).done(function($hbTemplate) {
-				console.log('$hbTemplate', $hbTemplate);
-			}).then(function() {
-				_this.bindEvents();
-			});
-		}
+	render() {
+		var _this = this;
+
+		console.log('render()', _this.constructor.name);
+
+		// render code here
 	}
 
 	bindEvents() {
+		var _this = this;
 		var $window = $(window);
 		var windowResize = function() {
-			console.log('window resize');
+			console.log('window resize', _this.constructor.name);
 		}
 
+		console.log('bindEvents()', _this.constructor.name);
+
 		bindEvent($window, 'resize', windowResize);
+	}
+
+	loaded() {
+		var _this = this;
+		var callbacks = function() {
+			_this.render();
+			_this.bindEvents();
+		}.bind(_this);
+
+		myApp.docReady.add(callbacks);
+		_this.ready = true;
+
+		console.log('loaded()', _this.constructor.name);
 	}
 }

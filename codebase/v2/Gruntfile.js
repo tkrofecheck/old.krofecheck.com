@@ -13,18 +13,21 @@ module.exports = function(grunt) {
 		grunt.log.ok('grunt typescript		build typescript');
     });
     // Build all
-    grunt.registerTask('build', ['clean', 'copy:html', 'copy:json', 'minjson', 'sass', 'copy:fonts', 'copy:libjs', 'imagemin', 'copy:images', 'cssmin', 'jshint', 'manifest', 'copy:manifest', ]);
+    grunt.registerTask('build', ['clean', 'copy:html', 'sass', 'copy:fonts', 'ts', 'copy:libjs', 'copy:json', 'minjson', 'imagemin', 'copy:images', 'jshint', 'copy:manifest', 'gitinfo', 'usebanner', 'babel']);
     // Build CSS
-    grunt.registerTask('css', ['clean', 'sass', 'cssmin']);
+    grunt.registerTask('css', ['clean', 'sass']);
     // Build JS
     grunt.registerTask('js', ['clean', 'copy:libjs', 'copy:json', 'jshint']);
 	// Build TS
-	grunt.registerTask('typescript', ['clean', 'copy:html', 'ts', 'copy:libjs', 'copy:json', 'jshint']);
+	grunt.registerTask('typescript', ['clean', 'copy:html', 'copy:libjs', 'ts', 'copy:json', 'jshint']);
 
 	require('load-grunt-tasks')(grunt);
 
     grunt.initConfig({
-        // File Path Setup
+		pkg: grunt.file.readJSON('package.json'),
+		banner: '/* repo: <%= pkg.name %>/<%= gitinfo.local.branch.current.name %>@<%= gitinfo.description %> - Package Version: <%= pkg.version %> - <%= grunt.template.today("yyyy-mm-dd hh:MM tt") %> - User: <%= gitinfo.local.branch.current.currentUser %> */\n',
+
+		// File Path Setup
         dirSrc: 'src',
         dirBuild: 'build',
         dirDist: 'dist',
@@ -38,18 +41,23 @@ module.exports = function(grunt) {
             all: ['dist', 'build']
         },
         sass: {
-            dist: {
+            build: {
                 options: {
-                    style: 'expanded',
-                    sourcemap: 'none'
+					style: 'expanded',
+					sourcemap: 'none'
                 },
-                files: [{
-                    expand: true,
-                    cwd: '<%= dirSrc %>/scss',
-                    src: ['*.scss'],
-                    dest: '<%= dirBuild %>/<%= dirCssPath %>',
-                    ext: '.css'
-                }]
+                files: {
+                    '<%= dirBuild %>/<%= dirCssPath %>/app.css' : '<%= dirSrc %>/scss/app.scss'
+                }
+			},
+			dist: {
+                options: {
+					style: 'compressed',
+					sourcemap: 'none'
+                },
+                files: {
+                    '<%= dirDist %>/<%= dirCssPath %>/app.css' : '<%= dirSrc %>/scss/app.scss'
+                }
             }
         },
         imagemin: { // Task
@@ -69,18 +77,25 @@ module.exports = function(grunt) {
         manifest: {
             generate: {
                 options: {
-                    basePath: '<%= dirDist %>/',
+					basePath: '<%= dirBuild %>/',
+					cache: ['<%= dirJsPath %>/app.js', '<%= dirCssPath %>/app.css'],
+					network: ['http://*', 'https://*'],
+					preferOnline: true,
+					headcoment: '<%= pkg.name %> v<%= pkg.version %>',
+					verbose: true,
                     timestamp: true,
-                    hash: true
+					hash: true,
+					master: ['index.html'],
+					process: function(path) {
+						return path.substring('<%= dirBuild %>/'.length);
+					},
+					"theme_color": "#db5945",
+					"start_url": "."
                 },
-                dest: 'manifest.appcache',
                 src: [
-                	'index.html',
-                    '<%= dirDataPath %>/*.json',
-                    '<%= dirCssPath %>/*.css',
-                    '<%= dirJsPath %>/*.js',
-                    '<%= dirJsPath %>/app/*.js',
-                    '<%= dirJsPath %>/lib/*.js',
+					'*.html',
+					'<%= dirJsPath %>/*.js',
+					'<%= dirCssPath %>/*.css'/*,
                     '<%= dirImgPath %>/*.jpg',
                     '<%= dirImgPath %>/portfolio/*.jpg',
                     '<%= dirImgPath %>/portfolio/adcounts/*.jpg',
@@ -95,29 +110,25 @@ module.exports = function(grunt) {
                     '<%= dirImgPath %>/portfolio/timeinc-kindle/*.jpg',
                     '<%= dirImgPath %>/portfolio/timeinc-misc/*.jpg',
                     '<%= dirImgPath %>/portfolio/timeinc-tfkclassroom/*.jpg',
-                    '<%= dirImgPath %>/portfolio/wyndham/*.jpg'
-                ],
-                exclude: [
-                    '<%= dirJsPath %>/lib/*.js'
-                ],
-                timestamp: true,
-                hash: true,
-                master: ['index.html'],
-                process: function(path) {
-                    return path.substring('<%= dirBuild %>/'.length);
-                },
+                    '<%= dirImgPath %>/portfolio/wyndham/*.jpg'*/
+				],
+				dest: 'manifest.appcache'
             }
         },
         copy: {
-            manifest: {
+            'manifest': {
                 files: [{
-                    src: '*.appcache',
+                    expand: true,
+                    cwd: './',
+                    src: 'manifest.json',
                     dest: '<%= dirBuild %>/'
                 }, {
-                    src: '*.appcache',
+                    expand: true,
+                    cwd: './',
+                    src: 'manifest.json',
                     dest: '<%= dirDist %>/'
                 }]
-            },
+			},
             html: {
                 files: [{
                     src: '*.html',
@@ -148,7 +159,7 @@ module.exports = function(grunt) {
                     dest: '<%= dirBuild %>/<%= dirJsPath %>/',
                 }, {
                     expand: true,
-                    cwd: '<%= dirBuild %>/<%= dirJsPath %>/',
+                    cwd: '<%= dirSrc %>/<%= dirJsPath %>/lib/',
                     src: '**',
                     dest: '<%= dirDist %>/<%= dirJsPath %>/',
                 }]
@@ -173,20 +184,6 @@ module.exports = function(grunt) {
                 dest: '<%= dirBuild %>/<%= dirDataPath %>/'
             }
         },
-        cssmin: {
-            options: {
-                shorthandCompacting: false,
-                roundingPrecision: -1
-            },
-            target: {
-                files: [{
-                    expand: true,
-                    cwd: '<%= dirBuild %>',
-                    src: ['<%= dirCssPath %>/*.css'],
-                    dest: '<%= dirDist %>'
-                }]
-            }
-        },
         jshint: {
             options: {
 				esversion: 6,
@@ -202,12 +199,10 @@ module.exports = function(grunt) {
         minjson: {
             compile: {
                 files: {
-                    '<%= dirDist %>/data/data.min.json': [
-                        '<%= dirBuild %>/data/about.json',
-                        '<%= dirBuild %>/data/nav.json',
-                        '<%= dirBuild %>/data/portfolio.json',
-                        '<%= dirBuild %>/data/resume.json'
-                    ]
+                    '<%= dirDist %>/data/about.json':'<%= dirBuild %>/data/about.json',
+                    '<%= dirDist %>/data/nav.json':'<%= dirBuild %>/data/nav.json',
+                    '<%= dirDist %>/data/portfolio.json':'<%= dirBuild %>/data/portfolio.json',
+                    '<%= dirDist %>/data/resume.json':'<%= dirBuild %>/data/resume.json'
                 }
             }
 		},
@@ -235,7 +230,39 @@ module.exports = function(grunt) {
                     spawn: false
                 },
             }
-        }
+		},
+		gitinfo: {
+			commands: {
+				'description': ['describe', '--tags', '--always', '--long', '--dirty']
+			}
+		},
+		usebanner: {
+			all: {
+				options: {
+					banner: '<%= banner %>',
+					linebreak: false
+				},
+				files: {
+					src: [
+						'build/**/*.css',
+						'build/**/*.js',
+						'dist/**/*.css',
+						'dist/**/*.js'
+					]
+				}
+			}
+		},
+		babel: {
+			options: {
+				sourceMap: true,
+				presets: ['env']
+			},
+			dist: {
+				files: {
+					'<%= dirDist %>/<%= dirJsPath %>/app.js': '<%= dirBuild %>/<%= dirJsPath %>/app.js'
+				}
+			}
+		}
     });
 
 };

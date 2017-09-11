@@ -6,6 +6,7 @@ import * as $ from "jquery";
 import * as _ from "underscore";
 import * as Handlebars from "handlebars";
 import { App as myApp } from "./app/_namespace";
+import { documentReady } from "./app/documentReady";
 
 interface dataFiles {
 	about: string;
@@ -22,7 +23,6 @@ interface requireCfg {
 	};
 }
 
-// export for others scripts to use
 window.$ = $;
 window._ = _;
 window.Handlebars = Handlebars;
@@ -36,12 +36,16 @@ class Setup {
 			files: files,
 			'require-config': requireCfg
 		};
+		myApp.docReady = new documentReady();
 	}
 
 	init() {
-		console.log("myApp", myApp);
 		requirejs.config(this.config['require-config']);
 		requirejs(['app/main']);
+
+		myApp.docReady.add(function() {
+			console.log("myApp", myApp);
+		});
 	}
 }
 

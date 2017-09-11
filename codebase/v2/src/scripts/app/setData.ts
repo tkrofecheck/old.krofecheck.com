@@ -1,4 +1,3 @@
-/* jshint esversion: 6 */
 declare var $: any;
 
 export function setData(me: any) {
@@ -12,10 +11,7 @@ export function setData(me: any) {
 		if (message === 'success') {
 			me.data = data;
 			console.log('setData done: ' + me.constructor.name);
-
-			if (me.updateOnDataSet === true) {
-				me.updateDOM();
-			}
+			me.prepare();
 		} else {
 			me.data = { 'message' : message };
 		}
