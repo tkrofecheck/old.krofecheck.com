@@ -72,11 +72,11 @@ export class Resume {
 		        				'{{/each}}',
 		            			'</ul>',
 		            		'{{/if}}',
-		        			'</section>',//role
+		        			'</section>',/* role */
 		        		'{{/if}}',
-		        		'</section>',//job
+		        		'</section>',/* job */
 	        		'{{/each}}',
-	        		'</section>',//jobs
+	        		'</section>',/* jobs */
 	        	'{{/if}}',
 	        	'{{#if this.college}}',
 	        		'<section class="college">',
@@ -98,12 +98,12 @@ export class Resume {
 	        			'{{#if this.year}}',
 	        				'<section class="year">{{this.year}}</section>',
 	        			'{{/if}}',
-	        			'</section>',//degree
+	        			'</section>',/* degree */
 	        		'{{/each}}',
 	        		'{{/if}}',
-	        		'</section>',//college
+	        		'</section>',/* college */
 	        	'{{/if}}',
-	            '</section>',//main
+	            '</section>',/* main */
 	            '{{/if}}',
 	            '{{/each}}'
 			)
@@ -121,7 +121,7 @@ export class Resume {
 
 		console.log('render()', _this.constructor.name);
 
-		// render code here
+		/* render code here */
 	}
 
 	bindEvents() {

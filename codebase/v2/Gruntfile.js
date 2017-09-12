@@ -254,6 +254,9 @@ module.exports = function(grunt) {
 		},
 		babel: {
 			options: {
+				comments: true,
+				compact: 'auto',
+				minified: true,
 				sourceMap: true,
 				presets: ['env']
 			},

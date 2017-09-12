@@ -83,7 +83,7 @@ export class Portfolio {
 
 		console.log('render()', _this.constructor.name);
 
-		// render code here
+		/* render code here */
 	}
 
 	bindEvents() {

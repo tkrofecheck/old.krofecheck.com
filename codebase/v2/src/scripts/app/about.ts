@@ -53,7 +53,7 @@ export class About {
 	    			'{{#if this.text}}',
 	    				'<span>{{{this.text}}}</span>',
 	    			'{{/if}}',
-	    			'</section>',//bio
+	    			'</section>',/* bio */
 	            '{{/if}}',
 	            '{{/each}}'
 			)
@@ -71,7 +71,7 @@ export class About {
 
 		console.log('render()', _this.constructor.name);
 
-		// render code here
+		/* render code here */
 	}
 
 	bindEvents() {

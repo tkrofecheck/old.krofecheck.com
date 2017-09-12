@@ -1,4 +1,4 @@
-//Load Web App JavaScript Dependencies/Plugins
+/* Load Web App JavaScript Dependencies/Plugins */
 import { App as myApp } from './_namespace';
 import { documentReady } from './documentReady';
 import { About } from './about';
