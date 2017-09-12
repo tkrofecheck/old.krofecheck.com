@@ -8,18 +8,18 @@ import * as Handlebars from "handlebars";
 import { App as myApp } from "./app/_namespace";
 import { documentReady } from "./app/documentReady";
 
-interface dataFiles {
+export interface dataFiles {
 	about: string;
 	nav: string;
 	portfolio: string;
 	resume: string;
 }
 
-interface requireCfg {
+export interface requireCfg {
 	baseUrl: string;
 	findNestedDependencies: boolean;
 	paths: {
-		app: string;
+		app: string
 	};
 }
 
@@ -36,6 +36,7 @@ class Setup {
 			files: files,
 			'require-config': requireCfg
 		};
+
 		myApp.docReady = new documentReady();
 	}
 
@@ -55,7 +56,7 @@ myApp.setup = new Setup(
 		nav: 'data/nav.json',
 		portfolio: 'data/portfolio.json',
 		resume: 'data/resume.json'
-	}, {
+	},{
 		baseUrl: 'scripts',
 		findNestedDependencies: true,
 		paths : {

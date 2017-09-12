@@ -1,10 +1,11 @@
 /* Load Web App JavaScript Dependencies/Plugins */
 import { App as myApp } from './_namespace';
 import { documentReady } from './documentReady';
-import { About } from './about';
-import { Portfolio } from './portfolio';
-import { Resume } from './resume';
-import { bindEvent } from "./bindEvent";
+import { Section } from './Section';
+import { Events } from './Events';
+import { aboutTemplate } from "./hbTemplates";
+import { portfolioTemplate } from "./hbTemplates";
+import { resumeTemplate } from "./hbTemplates";
 
 export class Main {
 	about: any;
@@ -13,41 +14,19 @@ export class Main {
 	resume: any;
 
 	constructor() {
+		var datafile = myApp.setup.config.files;
+
 		console.log('new Main()');
-		this.about = new About();
-		this.portfolio = new Portfolio();
-		this.resume = new Resume();
+		this.about = new Section('about', datafile.about, aboutTemplate);
+		this.portfolio = new Section('portfolio', datafile.portfolio, portfolioTemplate);
+		this.resume = new Section('resume', datafile.resume, resumeTemplate);
 	}
 
 	init() {
 		this.about.set();
 		this.portfolio.set();
 		this.resume.set();
-		this.bindEvents();
 		this.complete();
-	}
-
-	bindEvents() {
-		var _this = this;
-		var $window = $(window);
-		var $body = $('body');
-		var $header = $body.find('.header');
-		var $headerMenu = $header.find('.menu');
-		var $headerMenuItem = $headerMenu.find('.item');
-
-		var adjustHeaderMenu = function() {
-			if ($window.width() <= 320) {
-				$headerMenu.addClass('menu--state-collapse').removeClass('menu--state-expand');
-			} else {
-				$headerMenu.removeClass('menu--state-collapse').addClass('menu--state-expand');
-			}
-
-			return;
-		};
-
-		bindEvent($window, 'resize', adjustHeaderMenu);
-
-		myApp.docReady.add(adjustHeaderMenu);
 	}
 
 	complete() {
@@ -57,6 +36,7 @@ export class Main {
 				window.requestAnimationFrame(done);
 				return;
 			} else {
+				Events();
 				myApp.docReady.exec();
 			}
 		}

@@ -3,7 +3,9 @@ export namespace App {
 
 	export var config;
 	export var docReady;
+	export var handlebars;
 	export var setup;
 	export var main;
 	export var Utils;
+	export var templates;
 }

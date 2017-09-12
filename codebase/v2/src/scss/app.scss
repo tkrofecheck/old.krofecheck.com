@@ -1,27 +1,4 @@
+@import '_includes/main';
 @import '_includes/about';
 @import '_includes/portfolio';
 @import '_includes/resume';
-
-.header {
-	position: absolute;
-	top: 0;
-	left: 0;
-	right: 0;
-
-	.menu {
-		position: fixed;
-		display: flex;
-
-		.item {
-			width: auto;
-		}
-	}
-}
-
-.menu .menu--state-expand {
-	flex-direction: row;
-}
-
-.menu .menu--state-collapse {
-	flex-direction: column;
-}

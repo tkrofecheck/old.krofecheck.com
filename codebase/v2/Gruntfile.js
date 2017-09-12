@@ -13,7 +13,7 @@ module.exports = function(grunt) {
 		grunt.log.ok('grunt typescript		build typescript');
     });
     // Build all
-    grunt.registerTask('build', ['clean', 'copy:html', 'sass', 'copy:fonts', 'ts', 'copy:libjs', 'copy:json', 'minjson', 'imagemin', 'copy:images', 'jshint', 'copy:manifest', 'gitinfo', 'usebanner', 'babel']);
+    grunt.registerTask('build', ['clean', 'copy:html', 'sass', 'copy:fonts', 'ts', 'copy:libjs', 'copy:json', 'minjson', 'cwebp', 'copy:images', 'jshint', 'copy:manifest', 'babel', 'gitinfo', 'usebanner']);
     // Build CSS
     grunt.registerTask('css', ['clean', 'sass']);
     // Build JS
@@ -60,61 +60,19 @@ module.exports = function(grunt) {
                 }
             }
         },
-        imagemin: { // Task
-            dynamic: { // Another target
-                files: [{
-                    expand: true, // Enable dynamic expansion
-                    cwd: '<%= dirSrc %>/<%= dirImgPath %>', // Src matches are relative to this path
-                    src: [
-                        '*.{png,jpg,gif}',
-                        '**/*.{png,jpg,gif}',
-                        '**/**/*.{png,jpg,gif}'
-                    ], // Actual patterns to match
-                    dest: '<%= dirBuild %>/<%= dirImgPath %>' // Destination path prefix
-                }]
-            }
-        },
-        manifest: {
-            generate: {
-                options: {
-					basePath: '<%= dirBuild %>/',
-					cache: ['<%= dirJsPath %>/app.js', '<%= dirCssPath %>/app.css'],
-					network: ['http://*', 'https://*'],
-					preferOnline: true,
-					headcoment: '<%= pkg.name %> v<%= pkg.version %>',
-					verbose: true,
-                    timestamp: true,
-					hash: true,
-					master: ['index.html'],
-					process: function(path) {
-						return path.substring('<%= dirBuild %>/'.length);
-					},
-					"theme_color": "#db5945",
-					"start_url": "."
-                },
-                src: [
-					'*.html',
-					'<%= dirJsPath %>/*.js',
-					'<%= dirCssPath %>/*.css'/*,
-                    '<%= dirImgPath %>/*.jpg',
-                    '<%= dirImgPath %>/portfolio/*.jpg',
-                    '<%= dirImgPath %>/portfolio/adcounts/*.jpg',
-                    '<%= dirImgPath %>/portfolio/microsites/*.jpg',
-                    '<%= dirImgPath %>/portfolio/newsletter/*.jpg',
-                    '<%= dirImgPath %>/portfolio/newyorkpost/*.jpg',
-                    '<%= dirImgPath %>/portfolio/nyp-email/*.jpg',
-                    '<%= dirImgPath %>/portfolio/personal-wedding/*.jpg',
-                    '<%= dirImgPath %>/portfolio/timeinc-email/*.jpg',
-                    '<%= dirImgPath %>/portfolio/timeinc-ipad/*.jpg',
-                    '<%= dirImgPath %>/portfolio/timeinc-iphone/*.jpg',
-                    '<%= dirImgPath %>/portfolio/timeinc-kindle/*.jpg',
-                    '<%= dirImgPath %>/portfolio/timeinc-misc/*.jpg',
-                    '<%= dirImgPath %>/portfolio/timeinc-tfkclassroom/*.jpg',
-                    '<%= dirImgPath %>/portfolio/wyndham/*.jpg'*/
-				],
-				dest: 'manifest.appcache'
-            }
-        },
+		cwebp: {
+			dynamic: {
+				options: {
+					sameExt: true
+				},
+				files: [{
+					expand: true,
+					cwd: '<%= dirSrc %>/images',
+					src: ['**/*.{png,jpg,gif}'],
+					dest: '<%= dirBuild %>/images'
+				}]
+			}
+		},
         copy: {
             'manifest': {
                 files: [{
@@ -244,10 +202,10 @@ module.exports = function(grunt) {
 				},
 				files: {
 					src: [
-						'build/**/*.css',
-						'build/**/*.js',
-						'dist/**/*.css',
-						'dist/**/*.js'
+						'build/css/app.css',
+						'build/scripts/app.js',
+						'dist/css/app.css',
+						'dist/scripts/app.js'
 					]
 				}
 			}

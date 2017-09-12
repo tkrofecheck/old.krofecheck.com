@@ -4,7 +4,6 @@
 <head>
     <meta charset="utf-8"/>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-	<meta name="manifest" href="/manifest.json"/>
     <meta http-equiv="Content-Type" content="application/xhtml+xml;charset=UTF-8"/>
     <meta name="author" content="Tim Krofecheck"/>
     <meta name="copyright" content="(C) 2005-2015 - krofecheck.com"/>
@@ -19,21 +18,8 @@
 
     <title>Tim Krofecheck</title>
 
+	<link rel="manifest" href="manifest.json" />
     <link rel="stylesheet" href="css/app.css" />
-
-    <script>
-        // Check if a new cache is available on page load.
-        window.applicationCache.addEventListener('updateready', function(e) {
-            if (window.applicationCache.status == window.applicationCache.UPDATEREADY) {
-                // Browser downloaded a new app cache.
-                if (confirm('A new version of this site is available. Load it?')) {
-                    window.location.reload();
-                }
-            } else {
-                // Manifest didn't changed. Nothing new to server.
-            }
-        }, false);
-    </script>
 </head>
 
 <body>
@@ -46,17 +32,17 @@
 	</div>
 
 	<!-- About Section -->
-	<div class="section"></div>
+	<div id="about" class="section"></div>
 
 	<!-- Portfolio Section -->
-	<div class="section"></div>
+	<div id="portfolio" class="section"></div>
 
 	<!-- Resume Section -->
-	<div class="section"></div>
+	<div id="resume" class="section"></div>
 
-    <!-- <div class="copyright">(C) 2005-2017 - krofecheck.com</div> -->
+	<script data-main="scripts/app" src="scripts/require.js"></script>
 
-    <script data-main="scripts/app" src="scripts/require.js"></script>
+	<!-- <div class="copyright">(C) 2005-2017 - krofecheck.com</div> -->
 </body>
 
 </html>
