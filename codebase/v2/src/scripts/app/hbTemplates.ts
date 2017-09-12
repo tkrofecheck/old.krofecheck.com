@@ -9,7 +9,7 @@ export const aboutTemplate = ''.concat(
 		'{{/if}}',
 		'{{#if this.image}}',
 		'<div class="image-wrap">',
-			'<img src="{{this.image}}?v=' + myApp.updated + '" alt="Photo: Tim Krofecheck"/>',
+			'<img class="lazy" data-loader="asyncLoader" src="{{this.image}}" alt="Photo: Tim Krofecheck"/>',
 			'<h1>{{{this.person}}}</h1>',
 		'</div>',
 		'{{/if}}',
@@ -28,7 +28,7 @@ export const portfolioTemplate = ''.concat(
 		/*'<h4>{{this.name}}</h4>',*/
 		'{{#each this.steps}}',
 			'<div class="grid-item tile-width{{#if this.width2}} tile-width-x2{{/if}}{{#if this.gigante}} gigante{{/if}}">',
-			'<img src="images/portfolio/{{../this.folder}}/{{this.image}}?v=' + myApp.updated + '" alt="Portfolio image: {{../this.folder}}/{{this.image}}"/>',
+			'<img class="lazy" data-loader="asyncLoader" src="images/portfolio/{{../this.folder}}/{{this.image}}" alt="Portfolio image: {{../this.folder}}/{{this.image}}"/>',
 			'{{#if this.text}}<span>{{this.text}}</span>{{/if}}',
 			'</div>',
 		'{{/each}}',

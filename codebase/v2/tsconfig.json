@@ -1,5 +1,6 @@
 {
 	"compilerOptions": {
+		"allowJs": true,
 		"declaration": false,
 		"lib": "ES6",
 		"module": "amd",

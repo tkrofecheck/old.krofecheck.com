@@ -1,3 +1,6 @@
+declare var $: any;
+
+import "jquery-lazy";
 import { App as myApp } from './_namespace';
 import { bindEvent } from "./bindEvent";
 
@@ -40,8 +43,30 @@ export function Events() {
 		console.log('bind resume events');
 	};
 
+	var mainEvents = function() {
+		console.log('bind main events');
+
+		/* jQuery Lazy Info : http://jquery.eisbehr.de/lazy/ */
+		$('.lazy').Lazy({
+			// your configuration goes here
+			scrollDirection: 'vertical',
+			effect: 'fadeIn',
+			visibleOnly: true,
+			asyncLoader: function(element, response) {
+				setTimeout(function() {
+					element.html('element handled by "asyncLoader"');
+					response(true);
+				}, 1000);
+			},
+			onError: function(element) {
+				console.log('error loading ' + element.data('src'));
+			}
+		});
+	};
+
 	myApp.docReady.add(headerEvents);
 	myApp.docReady.add(aboutEvents);
 	myApp.docReady.add(portfolioEvents);
 	myApp.docReady.add(resumeEvents);
+	myApp.docReady.add(mainEvents);
 }

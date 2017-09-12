@@ -1,14 +1,10 @@
 /* Portfolio Section - Specific Styling Only */
 #portfolio {
-	margin: 0;
-	padding: 0;
-	width: 100vw;
+	width: inherit;
 
 	.grid-item {
 		img {
 			box-sizing: border-box;
-			max-width: 100%;
-
 			outline: 0px solid red;
 			outline-offset: 0px;
 		}

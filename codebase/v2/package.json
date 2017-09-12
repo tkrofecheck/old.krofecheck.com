@@ -31,6 +31,7 @@
     "install": "^0.10.1",
     "load-grunt-tasks": "0.4.0",
     "npm": "^5.4.1",
+    "jquery-lazy": "^1.7.5",
     "typescript": "2.4.0",
     "typescript-bundle": "0.8.7",
     "webpack": "^3.5.6"
