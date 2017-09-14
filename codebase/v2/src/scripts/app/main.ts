@@ -1,3 +1,5 @@
+declare var $: any;
+
 /* Load Web App JavaScript Dependencies/Plugins */
 import { App as myApp } from './_namespace';
 import { documentReady } from './documentReady';
@@ -38,7 +40,7 @@ export class Main {
 			} else {
 				Events();
 				myApp.docReady.exec();
-			}
+             }
 		}
 
 		done();

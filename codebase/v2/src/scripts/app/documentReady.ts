@@ -1,4 +1,5 @@
 declare var _: any;
+declare var $: any;
 
 export class documentReady {
 	functions: Array<any>;
@@ -19,7 +20,7 @@ export class documentReady {
 	exec() {
 		var _this = this;
 
-		$(document).ready(function() {
+		$(function($) {
 			console.log('render sections...');
 			for (let i:number = 0; i<_this.functions.length; i++) {
 				_this.functions[i]();

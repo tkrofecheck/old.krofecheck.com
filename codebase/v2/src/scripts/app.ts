@@ -8,6 +8,10 @@ import * as Handlebars from "handlebars";
 import { App as myApp } from "./app/_namespace";
 import { documentReady } from "./app/documentReady";
 
+export interface requireCfgShim {
+	[key: string]: Object;
+}
+
 export interface dataFiles {
 	about: string;
 	nav: string;
@@ -21,6 +25,7 @@ export interface requireCfg {
 	paths: {
 		app: string
 	};
+	shim: requireCfgShim;
 }
 
 window.$ = $;
@@ -59,8 +64,14 @@ myApp.setup = new Setup(
 	},{
 		baseUrl: 'scripts',
 		findNestedDependencies: true,
-		paths : {
+		paths: {
 			app: 'app'
+		},
+		shim: {
+			'jquery-lazy': {
+				deps: ['jquery'],
+				exports: '$.fn.Lazy'
+			}
 		}
 	}
 );

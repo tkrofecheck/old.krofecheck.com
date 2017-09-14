@@ -41,12 +41,12 @@ export class Section {
 
 	render() {
 		var _this = this;
-		var $section = $('#' + _this.section);
+		var $section = $("#" + _this.section);
 		var template = Handlebars.compile(_this.template);
 		var html = template(_this.get());
 
-		console.log('render()', this.section);
+		console.log("render()", this.section);
 
-		$section.html(html);
+		$(html).appendTo($section).hide().fadeIn(1000);
 	}
 }

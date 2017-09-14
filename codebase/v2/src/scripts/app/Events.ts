@@ -1,3 +1,4 @@
+declare var require: any;
 declare var $: any;
 
 import "jquery-lazy";
@@ -47,19 +48,26 @@ export function Events() {
 		console.log('bind main events');
 
 		/* jQuery Lazy Info : http://jquery.eisbehr.de/lazy/ */
-		$('.lazy').Lazy({
-			// your configuration goes here
-			scrollDirection: 'vertical',
-			effect: 'fadeIn',
+		$(".lazy").Lazy({ // your configuration goes here
+			bind: 'event',
+			scrollDirection: "vertical",
+			threshold: 50,
+			effect: "fadeIn",
 			visibleOnly: true,
-			asyncLoader: function(element, response) {
-				setTimeout(function() {
-					element.html('element handled by "asyncLoader"');
-					response(true);
-				}, 1000);
+			beforeLoad: function(element) {
+				// called before an elements gets handled
+				console.log("before load " + element.data("src"));
+			},
+			afterLoad: function(element) {
+				// called after an element was successfully handled
+				console.log("after load " + element.data("src"));
 			},
 			onError: function(element) {
-				console.log('error loading ' + element.data('src'));
+				console.log("error loading " + element.data("src"));
+			},
+			onFinishedAll: function() {
+				// called once all elements was handled
+				console.log("finished loading all elements");
 			}
 		});
 	};
