@@ -2,6 +2,7 @@ declare var require: any;
 declare var $: any;
 
 import 'jquery-lazy';
+import 'autolink';
 import { App as myApp } from './_namespace';
 import { bindEvent } from './bindEvent';
 
@@ -47,12 +48,18 @@ export function Events() {
 	var mainEvents = function() {
 		console.log('bind main events');
 
+		var $lazyImages = $('img.lazy');
+		var $gridItems = $('.grid-item');
+
 		/* jQuery Lazy Info : http://jquery.eisbehr.de/lazy/ */
-		$('.lazy').Lazy({ // your configuration goes here
+		$lazyImages.Lazy({ // your configuration goes here
 			bind: 'event',
 			scrollDirection: 'vertical',
-			threshold: 50,
+			threshold: 25, /* pixels */
 			effect: 'fadeIn',
+			effectTime: 500, /* milliseconds */
+			enableThrottle: true,
+			throttle: 250, /* milliseconds */
 			visibleOnly: true,
 			beforeLoad: function(element) {
 				// called before an elements gets handled
@@ -70,6 +77,8 @@ export function Events() {
 				console.log('finished loading all elements');
 			}
 		});
+
+		$gridItems.autolink();
 	};
 
 	myApp.docReady.add(headerEvents);

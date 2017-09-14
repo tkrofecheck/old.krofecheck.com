@@ -47,6 +47,6 @@ export class Section {
 
 		console.log('render()', this.section);
 
-		$(html).appendTo($section).hide().fadeIn(1000);
+		$section.html(html);
 	}
 }

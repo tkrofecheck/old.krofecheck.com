@@ -13,7 +13,7 @@ module.exports = function(grunt) {
 		grunt.log.ok('grunt typescript		build typescript');
     });
     // Build all
-    grunt.registerTask('build', ['clean', 'copy:html', 'sass', 'copy:fonts', 'ts', 'copy:libjs', 'copy:json', 'minjson', 'cwebp', 'copy:images', 'jshint', 'copy:manifest', 'babel', 'gitinfo', 'usebanner']);
+    grunt.registerTask('build', ['clean', 'copy:html', 'sass', 'copy:fonts', 'ts', 'copy:libjs', 'copy:json', 'minjson', 'cwebp', 'copy:images', 'jshint', 'copy:manifest', 'babel', 'gzip', 'gitinfo', 'usebanner']);
     // Build CSS
     grunt.registerTask('css', ['clean', 'sass']);
     // Build JS
@@ -222,6 +222,22 @@ module.exports = function(grunt) {
 				files: {
 					'<%= dirDist %>/<%= dirJsPath %>/app.js': '<%= dirBuild %>/<%= dirJsPath %>/app.js'
 				}
+			}
+		},
+		gzip: {
+			options: {
+				detail: true
+			},
+			index: {
+				src: [
+					'<%= dirDist %>/scripts/app.js',
+					'<%= dirDist %>/scripts/autolink.js',
+					'<%= dirDist %>/scripts/handlebars.js',
+					'<%= dirDist %>/scripts/jquery-lazy.js',
+					'<%= dirDist %>/scripts/jquery.js',
+					'<%= dirDist %>/scripts/require.js',
+					'<%= dirDist %>/scripts/underscore.js'
+				]
 			}
 		}
     });

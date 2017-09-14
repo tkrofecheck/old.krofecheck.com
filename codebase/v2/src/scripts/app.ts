@@ -2,31 +2,12 @@
 declare var window: any;
 declare var requirejs: any;
 
-import * as $ from "jquery";
-import * as _ from "underscore";
-import * as Handlebars from "handlebars";
-import { App as myApp } from "./app/_namespace";
-import { documentReady } from "./app/documentReady";
-
-export interface requireCfgShim {
-	[key: string]: Object;
-}
-
-export interface dataFiles {
-	about: string;
-	nav: string;
-	portfolio: string;
-	resume: string;
-}
-
-export interface requireCfg {
-	baseUrl: string;
-	findNestedDependencies: boolean;
-	paths: {
-		app: string
-	};
-	shim: requireCfgShim;
-}
+import * as $ from 'jquery';
+import * as _ from 'underscore';
+import * as Handlebars from 'handlebars';
+import { App as myApp } from './app/_namespace';
+import { documentReady } from './app/documentReady';
+import { dataFiles, requireCfgShim, requireCfg } from './app/interfaces';
 
 window.$ = $;
 window._ = _;
@@ -71,6 +52,10 @@ myApp.setup = new Setup(
 			'jquery-lazy': {
 				deps: ['jquery'],
 				exports: '$.fn.Lazy'
+			},
+			'autolink': {
+				deps: ['jquery'],
+				exports: '$.fn.autolink'
 			}
 		}
 	}
