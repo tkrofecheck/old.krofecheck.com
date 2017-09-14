@@ -2,8 +2,8 @@ declare var $: any;
 declare var Handlebars: any;
 
 import { App as myApp } from './_namespace';
-import { setData } from "./setData";
-import { bindEvent } from "./bindEvent";
+import { setData } from './setData';
+import { bindEvent } from './bindEvent';
 
 export class Section {
 	data: JSON;
@@ -41,11 +41,11 @@ export class Section {
 
 	render() {
 		var _this = this;
-		var $section = $("#" + _this.section);
+		var $section = $('#' + _this.section);
 		var template = Handlebars.compile(_this.template);
 		var html = template(_this.get());
 
-		console.log("render()", this.section);
+		console.log('render()', this.section);
 
 		$(html).appendTo($section).hide().fadeIn(1000);
 	}

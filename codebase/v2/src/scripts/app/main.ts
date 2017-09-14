@@ -5,9 +5,9 @@ import { App as myApp } from './_namespace';
 import { documentReady } from './documentReady';
 import { Section } from './Section';
 import { Events } from './Events';
-import { aboutTemplate } from "./hbTemplates";
-import { portfolioTemplate } from "./hbTemplates";
-import { resumeTemplate } from "./hbTemplates";
+import { aboutTemplate } from './hbTemplates';
+import { portfolioTemplate } from './hbTemplates';
+import { resumeTemplate } from './hbTemplates';
 
 export class Main {
 	about: any;

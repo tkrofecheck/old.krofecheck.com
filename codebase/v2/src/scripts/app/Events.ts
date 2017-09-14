@@ -1,9 +1,9 @@
 declare var require: any;
 declare var $: any;
 
-import "jquery-lazy";
+import 'jquery-lazy';
 import { App as myApp } from './_namespace';
-import { bindEvent } from "./bindEvent";
+import { bindEvent } from './bindEvent';
 
 export function Events() {
 	/* Bind all events here */
@@ -48,26 +48,26 @@ export function Events() {
 		console.log('bind main events');
 
 		/* jQuery Lazy Info : http://jquery.eisbehr.de/lazy/ */
-		$(".lazy").Lazy({ // your configuration goes here
+		$('.lazy').Lazy({ // your configuration goes here
 			bind: 'event',
-			scrollDirection: "vertical",
+			scrollDirection: 'vertical',
 			threshold: 50,
-			effect: "fadeIn",
+			effect: 'fadeIn',
 			visibleOnly: true,
 			beforeLoad: function(element) {
 				// called before an elements gets handled
-				console.log("before load " + element.data("src"));
+				console.log('before load ' + element.data('src'));
 			},
 			afterLoad: function(element) {
 				// called after an element was successfully handled
-				console.log("after load " + element.data("src"));
+				console.log('after load ' + element.data('src'));
 			},
 			onError: function(element) {
-				console.log("error loading " + element.data("src"));
+				console.log('error loading ' + element.data('src'));
 			},
 			onFinishedAll: function() {
 				// called once all elements was handled
-				console.log("finished loading all elements");
+				console.log('finished loading all elements');
 			}
 		});
 	};
