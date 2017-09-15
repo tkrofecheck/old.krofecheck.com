@@ -13,7 +13,7 @@ module.exports = function(grunt) {
 		grunt.log.ok('grunt typescript		build typescript');
     });
     // Build all
-    grunt.registerTask('build', ['clean', 'copy:html', 'sass', 'copy:fonts', 'ts', 'copy:libjs', 'copy:json', 'minjson', 'cwebp', 'copy:images', 'jshint', 'copy:manifest', 'babel', 'gzip', 'gitinfo', 'usebanner']);
+    grunt.registerTask('build', ['clean', 'copy:html', 'sass', 'copy:fonts', 'ts', 'copy:libjs', 'copy:json', 'minjson', 'cwebp', 'copy:images', 'jshint', 'copy:manifest', 'babel', 'gzip', 'gitinfo', 'usebanner', 'inline']);
     // Build CSS
     grunt.registerTask('css', ['clean', 'sass']);
     // Build JS
@@ -210,6 +210,16 @@ module.exports = function(grunt) {
 				}
 			}
 		},
+		inline: {
+			dist: {
+				options:{
+					cssmin: true,
+					uglify: true
+				},
+				src: '<%= dirBuild %>/index.html',
+				dest: '<%= dirDist %>/index.html'
+			}
+		},
 		babel: {
 			options: {
 				comments: true,
@@ -230,6 +240,9 @@ module.exports = function(grunt) {
 			},
 			index: {
 				src: [
+					'<%= dirDist %>/index.html',
+					'<%= dirDist %>/manifest.json',
+					'<%= dirDist %>/css/app.css',
 					'<%= dirDist %>/scripts/app.js',
 					'<%= dirDist %>/scripts/autolink.js',
 					'<%= dirDist %>/scripts/handlebars.js',
