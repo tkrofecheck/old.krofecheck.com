@@ -2,11 +2,44 @@
 #portfolio {
 	width: inherit;
 
-	.grid-item {
+	.grid-item-container {
+		position: relative;
+		width: auto;
+		height: auto;
+
+		.grid-item {
+			position: relative;
+			width: auto;
+			height: auto;
+			transition: left .5s ease-in-out, right .5s ease-in-out;
+		}
+
 		img {
 			box-sizing: border-box;
 			outline: 0px solid red;
 			outline-offset: 0px;
+			width: auto;
+			height: auto;
+		}
+
+		&.even {
+			.out {
+				left: -100%;
+			}
+
+			.in {
+				left: 0px;
+			}
+		}
+
+		&.odd {
+			.out {
+				right: -100%;
+			}
+
+			.in {
+				right: 0px;
+			}
 		}
 
 		&:hover img {

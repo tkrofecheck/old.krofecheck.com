@@ -1,10 +1,12 @@
 declare var $: any;
+declare var Handlebars: any;
 
 /* Load Web App JavaScript Dependencies/Plugins */
 import { App as myApp } from './_namespace';
 import { documentReady } from './documentReady';
 import { Section } from './Section';
 import { Events } from './Events';
+import { hbHelpers } from './hbHelpers';
 import { aboutTemplate } from './hbTemplates';
 import { portfolioTemplate } from './hbTemplates';
 import { resumeTemplate } from './hbTemplates';
@@ -22,6 +24,8 @@ export class Main {
 		this.about = new Section('about', datafile.about, aboutTemplate);
 		this.portfolio = new Section('portfolio', datafile.portfolio, portfolioTemplate);
 		this.resume = new Section('resume', datafile.resume, resumeTemplate);
+
+		hbHelpers(); // register all Handlebars helpers
 	}
 
 	init() {
