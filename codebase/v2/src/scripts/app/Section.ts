@@ -2,8 +2,8 @@ declare var $: any;
 declare var Handlebars: any;
 
 import { App as myApp } from './_namespace';
-import { setData } from './setData';
-import { bindEvent } from './bindEvent';
+import { setData } from './functions';
+import { bindEvent } from './functions';
 
 export class Section {
 	data: JSON;

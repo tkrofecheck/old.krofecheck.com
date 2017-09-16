@@ -4,7 +4,7 @@ declare var $: any;
 import 'jquery-lazy';
 import 'autolink';
 import { App as myApp } from './_namespace';
-import { bindEvent } from './bindEvent';
+import { bindEvent } from './functions';
 
 export function Events() {
 	/* Bind all events here */
@@ -56,7 +56,7 @@ export function Events() {
 			enableThrottle: true,
 			placeholder: null, // off-screen before load - no need for this
 			scrollDirection: 'vertical',
-			threshold: -40, /* pixels */
+			threshold: -80, /* pixels */
 			throttle: 0, /* milliseconds */
 			visibleOnly: true,
 			beforeLoad: function(element) {
