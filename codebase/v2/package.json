@@ -28,6 +28,7 @@
     "grunt-inline": "^0.3.6",
     "grunt-manifest": "^0.4.4",
     "grunt-minjson": "~0.3.0",
+    "grunt-modernizr": "^1.0.2",
     "grunt-text-replace": "~0.4.0",
     "grunt-ts": "^5.5.1",
     "install": "^0.10.1",

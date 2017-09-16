@@ -13,7 +13,7 @@ module.exports = function(grunt) {
 		grunt.log.ok('grunt typescript		build typescript');
     });
     // Build all
-    grunt.registerTask('build', ['clean', 'copy:html', 'sass', 'copy:fonts', 'ts', 'copy:libjs', 'copy:json', 'minjson', 'cwebp', 'copy:images', 'jshint', 'copy:manifest', 'babel', 'gzip', 'gitinfo', 'usebanner', 'inline']);
+    grunt.registerTask('build', ['clean', 'copy:html', 'sass', 'copy:fonts', 'ts', 'modernizr', 'copy:libjs', 'copy:json', 'minjson', 'cwebp', 'copy:images', 'jshint', 'copy:manifest', 'babel', 'gzip', 'gitinfo', 'usebanner', 'inline']);
     // Build CSS
     grunt.registerTask('css', ['clean', 'sass']);
     // Build JS
@@ -188,7 +188,65 @@ module.exports = function(grunt) {
                     spawn: false
                 },
             }
-		},
+        },
+        modernizr: {
+            "crawl": false,
+            "customTests": [],
+            "dest": "<%= dirSrc %>/scripts/lib/modernizr-output.js",
+            "tests": [
+                "cookies",
+                "eventlistener",
+                "json",
+                "postmessage",
+                "queryselector",
+                "svg",
+                "touchevents",
+                "video",
+                "animation",
+                "cssanimations",
+                "backgroundsize",
+                "borderradius",
+                "boxsizing",
+                "csscalc",
+                "flexbox",
+                "flexboxlegacy",
+                "flexboxtweener",
+                "fontface",
+                "lastchild",
+                "mediaqueries",
+                "opacity",
+                "csspositionsticky",
+                "cssremunit",
+                "cssresize",
+                "csstransforms3d",
+                "csstransitions",
+                "cssvhunit",
+                "cssvwunit",
+                "classlist",
+                "es5date",
+                "es6array",
+                "es6number",
+                "es6object",
+                "es6string",
+                "xhrresponsetypejson",
+                "xhr2",
+                "localstorage",
+                "sessionstorage",
+                [
+                "atobbtoa"
+                ]
+            ],
+            "options": [
+                "domPrefixes",
+                "prefixes",
+                "hasEvent",
+                "prefixedCSS",
+                "prefixedCSSValue",
+                "html5shiv",
+                "setClasses"
+            ],
+            "uglify": true
+        },
 		gitinfo: {
 			commands: {
 				'description': ['describe', '--tags', '--always', '--long', '--dirty']

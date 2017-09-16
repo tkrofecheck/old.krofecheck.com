@@ -16,15 +16,16 @@
 
 		img {
 			box-sizing: border-box;
-			outline: 0px solid red;
-			outline-offset: 0px;
-			width: auto;
 			height: auto;
 		}
 
 		&.even {
 			.out {
 				left: -100%;
+
+				@media only screen and (min-width: 481px) {
+					left: 0px;
+				}
 			}
 
 			.in {
@@ -35,6 +36,9 @@
 		&.odd {
 			.out {
 				right: -100%;
+				@media only screen and (min-width: 481px) {
+					right: 0px;
+				}
 			}
 
 			.in {
