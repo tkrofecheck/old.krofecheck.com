@@ -192,7 +192,7 @@ module.exports = function(grunt) {
         modernizr: {
             "crawl": false,
             "customTests": [],
-            "dest": "<%= dirSrc %>/scripts/lib/modernizr-output.js",
+            "dest": "<%= dirSrc %>/scripts/lib/modernizr.js",
             "tests": [
                 "cookies",
                 "eventlistener",
