@@ -1,0 +1,75 @@
+#resume-container {
+	display: none;
+	box-sizing: border-box;
+	padding: 20px 0;
+
+	section {
+		h3 {
+			font-weight: 600;
+		}
+
+		&.main {
+    		width: auto;
+    		margin: 10px;
+		}
+
+		&.job {
+			margin: 0px auto 15px auto;
+
+			.company {
+				float: left;
+				width: 50%;
+				text-align: left;
+			}
+			.city {
+				float: right;
+				width: 50%;
+				text-align: right;
+			}
+			.role {
+				clear: both;
+
+				.name {
+					float: left;
+					width: 50%;
+					text-align: left;
+					font-style: italic;
+				}
+				.duration {
+					float: right;
+					width: 50%;
+					text-align: right;
+				}
+				ul.items {
+					clear: both;
+				}
+				li {
+					list-style-type: circle;
+   					padding-left: 5px;
+    				margin-left: 40px;
+				}
+			}
+		}
+
+		&.college {
+			.name {
+				float: left;
+				width: 50%;
+				text-align: left;
+			}
+			.city {
+				float: right;
+				width: 50%;
+				text-align: right;
+			}
+			.degree {
+				clear: both;
+
+				section {
+					float: left;
+					padding-left: 10px;
+				}
+			}
+		}
+	}
+}
